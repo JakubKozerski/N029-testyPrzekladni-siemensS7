@@ -1,0 +1,2169 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+	<!--edited by NORD DRIVERSYSTEMS Mai 03 2011                                               -->
+	<!--          Getriebebau-Nord-Straße 1                                                    -->
+	<!--          22941 Bargteheide / Hamburg                                                  -->
+	<!--  ****    Revision History   ****                                                      -->
+	<!--Version No              Description / Changes                                          -->
+	<!--V1.0 (20110624)         Original file                                                  -->
+	<!--V1.1 (20120124)         PPO2 Module ID = 0xA                                           -->
+	<!--V1.2 (20120910)         SK TU4-PNT supported (+TU3), .bmp files updated                -->
+	<!--V1.3 (20130422)         MRP supported, TU3 + TU4 in one file                           -->
+	<!--V1.4 (20130909)         SK CU4-PNT supported, SK TU4-PNT-SAF                           -->
+	<!--V1.5 (20141119)         SAFE Index = 110,inputs and outputs changed                    -->
+	<!--V1.6 (20150603)         SK TU3-PNT eight inverters supportet                           -->
+	<!--V1.7 (20161107)         SAFE updated and modified to GSDML Profile = 2.32              -->
+	<!--V1.8 (20170207)         error types added                                              -->
+	<!--V1.9 (20170214)         SAFE Watchdog 150ms                                            -->
+	<!--V2.0 (20181129)         SK 550P-PNT added                                              -->
+	<!--V2.1 (20200917)         SK 300P-PNT added                                              -->
+	<!--V2.2 (20201127)		    SK CU4-ETH added / Module list commentary added				   -->
+	<!--V2.3 (20220812)		    SK TU4-ETH added                                               -->
+	<!--V2.4 (20221102)		    error types added                                              -->
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\xsd\GSDML-DeviceProfile-V2.41.xsd">
+	<ProfileHeader>
+		<ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+		<ProfileRevision>1.00</ProfileRevision>
+		<ProfileName>Device Profile for PROFINET Devices</ProfileName>
+		<ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+		<ProfileClassID>Device</ProfileClassID>
+		<ISO15745Reference>
+			<ISO15745Part>4</ISO15745Part>
+			<ISO15745Edition>1</ISO15745Edition>
+			<ProfileTechnology>GSDML</ProfileTechnology>
+		</ISO15745Reference>
+	</ProfileHeader>
+	<ProfileBody>
+		<DeviceIdentity VendorID="0x0189" DeviceID="0x0001">
+			<InfoText TextId="TOK_PN_IO_DEVICE_DESCRIPTION"/>
+			<VendorName Value="NORD Electronic DRIVESYSTEMS GmbH"/>
+		</DeviceIdentity>
+		<DeviceFunction>
+			<Family MainFamily="Drives" ProductFamily="NORD DRIVESYSTEMS"/>
+		</DeviceFunction>
+		<ApplicationProcess>
+			<DeviceAccessPointList>
+				<DeviceAccessPointItem ID="DAP1:TU3PNT" PhysicalSlots="0..10" ModuleIdentNumber="0x00000001" MinDeviceInterval="32" 
+ImplementationType="ERTEC 200" DNS_CompatibleName="SK-TU3-PNT" FixedInSlots="0" ObjectUUID_LocalIndex="1" 
+SharedDeviceSupported="false" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" RequiredSchemaVersion="V2.25" 
+MaxSupportedRecordSize="4068" ParameterizationSpeedupSupported="true" PowerOnToCommReady="0" PNIO_Version="V2.34" 
+CheckDeviceID_Allowed="true" NameOfStationNotTransferable="true" LLDP_NoD_Supported="true" ResetToFactoryModes="2" 
+MultipleWriteSupported="true">
+					<ModuleInfo CategoryRef="ID_UNIT_500E">
+						<Name TextId="TOK_DAP_NAME_TU3"/>
+						<InfoText TextId="TOK_DAP_DESCRIPTION_TU3"/>
+						<VendorName Value="NORD Electronic DRIVESYSTEMS GmbH"/>
+						<OrderNumber Value="275900190"/>
+					</ModuleInfo>
+					<CertificationInfo ConformanceClass="C" ApplicationClass="" NetloadClass="I"/>
+					<SubslotList>
+						<SubslotItem SubslotNumber="32768" TextId="TOK_SUBSLOT_INTERFACE"/>
+						<SubslotItem SubslotNumber="32769" TextId="TOK_SUBSLOT_PORT1"/>
+						<SubslotItem SubslotNumber="32770" TextId="TOK_SUBSLOT_PORT2"/>
+					</SubslotList>
+					<IOConfigData MaxInputLength="200" MaxOutputLength="200"/>
+					<UseableModules>
+						<ModuleItemRef ModuleItemTarget="EMPTY" AllowedInSlots="1..10"/>
+						<ModuleItemRef ModuleItemTarget="PPO1" AllowedInSlots="3..10"/>
+						<ModuleItemRef ModuleItemTarget="PPO2" AllowedInSlots="3..10"/>
+						<ModuleItemRef ModuleItemTarget="PPO3" AllowedInSlots="3..10"/>
+						<ModuleItemRef ModuleItemTarget="PPO4" AllowedInSlots="3..10" UsedInSlots="3"/>
+						<ModuleItemRef ModuleItemTarget="PPO6" AllowedInSlots="3..10"/>
+					</UseableModules>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="DAP TU3PNT SUB" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="false" Writeable_IM_Records="1 2 3 4">
+							<IOData/>
+							<ModuleInfo>
+								<Name TextId="TOK_DAP_NAME_TU3"/>
+								<InfoText TextId="TOK_DAP_SUB_INFO_TU3"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+					<SystemDefinedSubmoduleList>
+						<InterfaceSubmoduleItem ID="IDS_1I" SubslotNumber="32768" SubmoduleIdentNumber="0x0002" SupportedRT_Classes="RT_CLASS_1;RT_CLASS_3" TextId="TOK_DAP_INTERFACE" SupportedProtocols="SNMP;LLDP" NetworkComponentDiagnosisSupported="true" DCP_HelloSupported="false" PTP_BoundarySupported="true" DCP_BoundarySupported="true" DelayMeasurementSupported="true">
+							<RT_Class3Properties MaxBridgeDelay="2920" MaxNumberIR_FrameData="128" StartupMode="Legacy;Advanced" ForwardingMode="Absolute"/>
+							<SynchronisationMode SupportedRole="SyncSlave" MaxLocalJitter="50" T_PLL_MAX="1000" SupportedSyncProtocols="PTCP"/>
+							<ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" PullModuleAlarmSupported="true" StartupMode="Legacy;Advanced">
+								<TimingProperties SendClock="8 16 32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+								<RT_Class3TimingProperties SendClock="8 16 32 64 128" ReductionRatio="1 2 4 8 16"/>
+							</ApplicationRelations>
+							<MediaRedundancy SupportedRole="Client" MaxMRP_Instances="1"/>
+						</InterfaceSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_1P1" SubslotNumber="32769" SubmoduleIdentNumber="0x0003" MAUTypes="16" CheckMAUTypeSupported="true" TextId="TOK_PORT_1" MaxPortRxDelay="302" MaxPortTxDelay="108" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeDifferenceSupported="true">
+							<MAUTypeList>
+								<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_1P2" SubslotNumber="32770" SubmoduleIdentNumber="0x0003" MAUTypes="16" CheckMAUTypeSupported="true" TextId="TOK_PORT_2" MaxPortRxDelay="302" MaxPortTxDelay="108" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeDifferenceSupported="true">
+							<MAUTypeList>
+								<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+					</SystemDefinedSubmoduleList>
+					<Graphics>
+						<GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="ID_Graph_TU3"/>
+					</Graphics>
+				</DeviceAccessPointItem>
+				<DeviceAccessPointItem ID="DAP2:TU4PNT" PhysicalSlots="0..6" ModuleIdentNumber="0x00000002" MinDeviceInterval="32" ImplementationType="ERTEC 200" DNS_CompatibleName="SK-TU4-PNT" FixedInSlots="0" ObjectUUID_LocalIndex="1" SharedDeviceSupported="false" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" RequiredSchemaVersion="V2.25" MaxSupportedRecordSize="4068" ParameterizationSpeedupSupported="true" PowerOnToCommReady="0" PNIO_Version="V2.34" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="true" LLDP_NoD_Supported="true" ResetToFactoryModes="2" MultipleWriteSupported="true">
+					<ModuleInfo CategoryRef="ID_UNIT_200E">
+						<Name TextId="TOK_DAP_NAME_TU4"/>
+						<InfoText TextId="TOK_DAP_DESCRIPTION_TU4"/>
+						<VendorName Value="NORD Electronic DRIVESYSTEMS GmbH"/>
+						<OrderNumber Value="275281115"/>
+					</ModuleInfo>
+					<CertificationInfo ConformanceClass="C" ApplicationClass="" NetloadClass="I"/>
+					<SubslotList>
+						<SubslotItem SubslotNumber="32768" TextId="TOK_SUBSLOT_INTERFACE"/>
+						<SubslotItem SubslotNumber="32769" TextId="TOK_SUBSLOT_PORT1"/>
+						<SubslotItem SubslotNumber="32770" TextId="TOK_SUBSLOT_PORT2"/>
+					</SubslotList>
+					<IOConfigData MaxInputLength="100" MaxOutputLength="100"/>
+					<UseableModules>
+						<ModuleItemRef ModuleItemTarget="EMPTY" AllowedInSlots="1..6"/>
+						<ModuleItemRef ModuleItemTarget="TUPNTIO" AllowedInSlots="2" UsedInSlots="2"/>
+						<ModuleItemRef ModuleItemTarget="PPO1" AllowedInSlots="3..6"/>
+						<ModuleItemRef ModuleItemTarget="PPO2" AllowedInSlots="3..6"/>
+						<ModuleItemRef ModuleItemTarget="PPO3" AllowedInSlots="3..6"/>
+						<ModuleItemRef ModuleItemTarget="PPO4" AllowedInSlots="3..6" UsedInSlots="3"/>
+						<ModuleItemRef ModuleItemTarget="PPO6" AllowedInSlots="3..6"/>
+					</UseableModules>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="DAP TU4PNT SUB" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="false" Writeable_IM_Records="1 2 3 4">
+							<IOData/>
+							<ModuleInfo>
+								<Name TextId="TOK_DAP_NAME_TU4"/>
+								<InfoText TextId="TOK_DAP_SUB_INFO_TU4"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+					<SystemDefinedSubmoduleList>
+						<InterfaceSubmoduleItem ID="IDS2_1I" SubslotNumber="32768" SubmoduleIdentNumber="0x0002" SupportedRT_Classes="RT_CLASS_1;RT_CLASS_3" TextId="TOK_DAP_INTERFACE" SupportedProtocols="SNMP;LLDP" NetworkComponentDiagnosisSupported="true" DCP_HelloSupported="false" PTP_BoundarySupported="true" DCP_BoundarySupported="true" DelayMeasurementSupported="true">
+							<RT_Class3Properties MaxBridgeDelay="2920" MaxNumberIR_FrameData="128" StartupMode="Legacy;Advanced" ForwardingMode="Absolute"/>
+							<SynchronisationMode SupportedRole="SyncSlave" MaxLocalJitter="50" T_PLL_MAX="1000" SupportedSyncProtocols="PTCP"/>
+							<ApplicationRelations StartupMode="Legacy;Advanced" NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" PullModuleAlarmSupported="true">
+								<TimingProperties SendClock="8 16 32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+								<RT_Class3TimingProperties SendClock="8 16 32 64 128" ReductionRatio="1 2 4 8 16"/>
+							</ApplicationRelations>
+							<MediaRedundancy SupportedRole="Client" MaxMRP_Instances="1"/>
+						</InterfaceSubmoduleItem>
+						<PortSubmoduleItem ID="IDS2_1P1" SubslotNumber="32769" SubmoduleIdentNumber="0x0003" MAUTypes="16" CheckMAUTypeSupported="true" TextId="TOK_PORT_1" MaxPortRxDelay="302" MaxPortTxDelay="108" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeDifferenceSupported="true">
+							<MAUTypeList>
+								<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+						<PortSubmoduleItem ID="IDS2_1P2" SubslotNumber="32770" SubmoduleIdentNumber="0x0003" MAUTypes="16" CheckMAUTypeSupported="true" TextId="TOK_PORT_2" MaxPortRxDelay="302" MaxPortTxDelay="108" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeDifferenceSupported="true">
+							<MAUTypeList>
+								<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+					</SystemDefinedSubmoduleList>
+					<Graphics>
+						<GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="ID_Graph_TU4"/>
+					</Graphics>
+				</DeviceAccessPointItem>
+				<DeviceAccessPointItem ID="DAP3:CU4PNT" PhysicalSlots="0..6" ModuleIdentNumber="0x00000011" MinDeviceInterval="32" ImplementationType="ERTEC 200" DNS_CompatibleName="SK-CU4-PNT" FixedInSlots="0" ObjectUUID_LocalIndex="1" SharedDeviceSupported="false" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" RequiredSchemaVersion="V2.25" MaxSupportedRecordSize="4068" ParameterizationSpeedupSupported="true" PowerOnToCommReady="0" PNIO_Version="V2.34" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="true" LLDP_NoD_Supported="true" ResetToFactoryModes="2" MultipleWriteSupported="true">
+					<ModuleInfo CategoryRef="ID_UNIT_200E">
+						<Name TextId="TOK_DAP_NAME_CU4"/>
+						<InfoText TextId="TOK_DAP_DESCRIPTION_CU4"/>
+						<VendorName Value="NORD Electronic DRIVESYSTEMS GmbH"/>
+						<OrderNumber Value="275271015"/>
+					</ModuleInfo>
+					<CertificationInfo ConformanceClass="C" ApplicationClass="" NetloadClass="I"/>
+					<SubslotList>
+						<SubslotItem SubslotNumber="32768" TextId="TOK_SUBSLOT_INTERFACE"/>
+						<SubslotItem SubslotNumber="32769" TextId="TOK_SUBSLOT_PORT1"/>
+						<SubslotItem SubslotNumber="32770" TextId="TOK_SUBSLOT_PORT2"/>
+					</SubslotList>
+					<IOConfigData MaxInputLength="100" MaxOutputLength="100"/>
+					<UseableModules>
+						<ModuleItemRef ModuleItemTarget="EMPTY" AllowedInSlots="1..6"/>
+						<ModuleItemRef ModuleItemTarget="TUPNTIN" AllowedInSlots="2" UsedInSlots="2"/>
+						<ModuleItemRef ModuleItemTarget="PPO1" AllowedInSlots="3..6"/>
+						<ModuleItemRef ModuleItemTarget="PPO2" AllowedInSlots="3..6"/>
+						<ModuleItemRef ModuleItemTarget="PPO3" AllowedInSlots="3..6"/>
+						<ModuleItemRef ModuleItemTarget="PPO4" AllowedInSlots="3..6" UsedInSlots="3"/>
+						<ModuleItemRef ModuleItemTarget="PPO6" AllowedInSlots="3..6"/>
+					</UseableModules>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="DAP CU4PNT SUB" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="false" Writeable_IM_Records="1 2 3 4">
+							<IOData/>
+							<ModuleInfo>
+								<Name TextId="TOK_DAP_NAME_CU4"/>
+								<InfoText TextId="TOK_DAP_SUB_INFO_CU4"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+					<SystemDefinedSubmoduleList>
+						<InterfaceSubmoduleItem ID="IDS3_1I" SubslotNumber="32768" SubmoduleIdentNumber="0x0002" SupportedRT_Classes="RT_CLASS_1;RT_CLASS_3" TextId="TOK_DAP_INTERFACE" SupportedProtocols="SNMP;LLDP" NetworkComponentDiagnosisSupported="true" DCP_HelloSupported="false" PTP_BoundarySupported="true" DCP_BoundarySupported="true" DelayMeasurementSupported="true">
+							<RT_Class3Properties MaxBridgeDelay="2920" MaxNumberIR_FrameData="128" StartupMode="Legacy;Advanced" ForwardingMode="Absolute"/>
+							<SynchronisationMode SupportedRole="SyncSlave" MaxLocalJitter="50" T_PLL_MAX="1000" SupportedSyncProtocols="PTCP"/>
+							<ApplicationRelations StartupMode="Legacy;Advanced" NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" PullModuleAlarmSupported="true">
+								<TimingProperties SendClock="8 16 32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+								<RT_Class3TimingProperties SendClock="8 16 32 64 128" ReductionRatio="1 2 4 8 16"/>
+							</ApplicationRelations>
+							<MediaRedundancy SupportedRole="Client" MaxMRP_Instances="1"/>
+						</InterfaceSubmoduleItem>
+						<PortSubmoduleItem ID="IDS3_1P1" SubslotNumber="32769" SubmoduleIdentNumber="0x0003" MAUTypes="16" CheckMAUTypeSupported="true" TextId="TOK_PORT_1" MaxPortRxDelay="302" MaxPortTxDelay="108" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeDifferenceSupported="true">
+							<MAUTypeList>
+								<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+						<PortSubmoduleItem ID="IDS3_1P2" SubslotNumber="32770" SubmoduleIdentNumber="0x0003" MAUTypes="16" CheckMAUTypeSupported="true" TextId="TOK_PORT_2" MaxPortRxDelay="302" MaxPortTxDelay="108" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeDifferenceSupported="true">
+							<MAUTypeList>
+								<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+					</SystemDefinedSubmoduleList>
+					<Graphics>
+						<GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="ID_Graph_CU4"/>
+					</Graphics>
+				</DeviceAccessPointItem>
+				<DeviceAccessPointItem ID="DAP4:TU4PNTSAF" PhysicalSlots="0..6" ModuleIdentNumber="0x00000012" MinDeviceInterval="32" 
+ImplementationType="ERTEC 200" DNS_CompatibleName="SK-TU4-PNS" FixedInSlots="0" ObjectUUID_LocalIndex="1" 
+SharedDeviceSupported="false" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" RequiredSchemaVersion="V2.25" 
+MaxSupportedRecordSize="4068" ParameterizationSpeedupSupported="true" PowerOnToCommReady="0" PNIO_Version="V2.34" 
+CheckDeviceID_Allowed="true" NameOfStationNotTransferable="true" LLDP_NoD_Supported="true" ResetToFactoryModes="2" 
+MultipleWriteSupported="true">
+					<ModuleInfo CategoryRef="ID_UNIT_200E">
+						<Name TextId="TOK_DAP_NAME_TU4SAF"/>
+						<InfoText TextId="TOK_DAP_DESCRIPTION_TU4SAF"/>
+						<VendorName Value="NORD Electronic DRIVESYSTEMS GmbH"/>
+						<OrderNumber Value="275281116"/>
+					</ModuleInfo>
+					<CertificationInfo ConformanceClass="C" ApplicationClass="" NetloadClass="I"/>
+					<SubslotList>
+						<SubslotItem SubslotNumber="32768" TextId="TOK_SUBSLOT_INTERFACE"/>
+						<SubslotItem SubslotNumber="32769" TextId="TOK_SUBSLOT_PORT1"/>
+						<SubslotItem SubslotNumber="32770" TextId="TOK_SUBSLOT_PORT2"/>
+					</SubslotList>
+					<IOConfigData MaxInputLength="100" MaxOutputLength="100"/>
+					<UseableModules>
+						<ModuleItemRef ModuleItemTarget="EMPTY" AllowedInSlots="1..6"/>
+						<ModuleItemRef ModuleItemTarget="PNSAFE" AllowedInSlots="1" UsedInSlots="1"/>
+						<ModuleItemRef ModuleItemTarget="PPO1" AllowedInSlots="3..6"/>
+						<ModuleItemRef ModuleItemTarget="PPO2" AllowedInSlots="3..6"/>
+						<ModuleItemRef ModuleItemTarget="PPO3" AllowedInSlots="3..6"/>
+						<ModuleItemRef ModuleItemTarget="PPO4" AllowedInSlots="3..6" UsedInSlots="3"/>
+						<ModuleItemRef ModuleItemTarget="PPO6" AllowedInSlots="3..6"/>
+					</UseableModules>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="DAP TU4PNTSAF SUB" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="false" Writeable_IM_Records="1 2 3 4">
+							<IOData/>
+							<ModuleInfo>
+								<Name TextId="TOK_DAP_NAME_TU4SAF"/>
+								<InfoText TextId="TOK_DAP_SUB_INFO_TU4SAF"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+					<SystemDefinedSubmoduleList>
+						<InterfaceSubmoduleItem ID="IDS4_1I" SubslotNumber="32768" SubmoduleIdentNumber="0x0002" SupportedRT_Classes="RT_CLASS_1;RT_CLASS_3" TextId="TOK_DAP_INTERFACE" SupportedProtocols="SNMP;LLDP" NetworkComponentDiagnosisSupported="true" DCP_HelloSupported="false" PTP_BoundarySupported="true" DCP_BoundarySupported="true" DelayMeasurementSupported="true">
+							<RT_Class3Properties MaxBridgeDelay="2920" MaxNumberIR_FrameData="128" StartupMode="Legacy;Advanced" ForwardingMode="Absolute"/>
+							<SynchronisationMode SupportedRole="SyncSlave" MaxLocalJitter="50" T_PLL_MAX="1000" SupportedSyncProtocols="PTCP"/>
+							<ApplicationRelations StartupMode="Legacy;Advanced" NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" PullModuleAlarmSupported="true">
+								<TimingProperties SendClock="8 16 32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+								<RT_Class3TimingProperties SendClock="8 16 32 64 128" ReductionRatio="1 2 4 8 16"/>
+							</ApplicationRelations>
+							<MediaRedundancy SupportedRole="Client" MaxMRP_Instances="1"/>
+						</InterfaceSubmoduleItem>
+						<PortSubmoduleItem ID="IDS4_1P1" SubslotNumber="32769" SubmoduleIdentNumber="0x0003" MAUTypes="16" CheckMAUTypeSupported="true" TextId="TOK_PORT_1" MaxPortRxDelay="302" MaxPortTxDelay="108" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeDifferenceSupported="true">
+							<MAUTypeList>
+								<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+						<PortSubmoduleItem ID="IDS4_1P2" SubslotNumber="32770" SubmoduleIdentNumber="0x0003" MAUTypes="16" CheckMAUTypeSupported="true" TextId="TOK_PORT_2" MaxPortRxDelay="302" MaxPortTxDelay="108" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" SupportsRingportConfig="true" IsDefaultRingport="true" CheckMAUTypeDifferenceSupported="true">
+							<MAUTypeList>
+								<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+					</SystemDefinedSubmoduleList>
+					<Graphics>
+						<GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="ID_Graph_TU4SAF"/>
+					</Graphics>
+				</DeviceAccessPointItem>
+				<DeviceAccessPointItem ID="DAP5:INVERTER550P" PhysicalSlots="0..10" ModuleIdentNumber="0x00000020" 
+MinDeviceInterval="8" ImplementationType="netX52" DNS_CompatibleName="SK550P-PNT" FixedInSlots="0" ObjectUUID_LocalIndex="1" 
+SharedDeviceSupported="true" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" PowerOnToCommReady="0" 
+PNIO_Version="V2.34" NameOfStationNotTransferable="true" ResetToFactoryModes="2" MultipleWriteSupported="true" 
+CheckDeviceID_Allowed="true" LLDP_NoD_Supported="true" SharedInputSupported="false" PrmBeginPrmEndSequenceSupported="false" 
+ParameterizationSpeedupSupported="true">
+					<ModuleInfo CategoryRef="ID_UNIT_NORDAC_PRO">
+						<Name TextId="TOK_DAP_NAME_550P_PNT"/>
+						<InfoText TextId="TOK_DAP_DESCRIPTION_500P_PNT"/>
+						<VendorName Value="NORD Electronic DRIVESYSTEMS GmbH"/>
+					</ModuleInfo>
+					<CertificationInfo ConformanceClass="C" ApplicationClass="" NetloadClass="III"/>
+					<SubslotList>
+						<SubslotItem SubslotNumber="32768" TextId="TOK_SUBSLOT_INTERFACE"/>
+						<SubslotItem SubslotNumber="32769" TextId="TOK_SUBSLOT_PORT1"/>
+						<SubslotItem SubslotNumber="32770" TextId="TOK_SUBSLOT_PORT2"/>
+					</SubslotList>
+					<IOConfigData MaxDataLength="400" MaxInputLength="200" MaxOutputLength="200"/>
+					<UseableModules>
+						<ModuleItemRef ModuleItemTarget="EMPTY" AllowedInSlots="1..10"/>
+						<ModuleItemRef ModuleItemTarget="PPO1" AllowedInSlots="3..10"/>
+						<ModuleItemRef ModuleItemTarget="PPO2" AllowedInSlots="3..10"/>
+						<ModuleItemRef ModuleItemTarget="PPO3" AllowedInSlots="3..10"/>
+						<ModuleItemRef ModuleItemTarget="PPO4" AllowedInSlots="3..10" UsedInSlots="3"/>
+						<ModuleItemRef ModuleItemTarget="PPO6" AllowedInSlots="3..10"/>
+					</UseableModules>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="DAP 550PPNT SUB" SubmoduleIdentNumber="0x00000001" IM5_Supported="true" MayIssueProcessAlarm="false" Writeable_IM_Records="1 2 3 4">
+							<IOData/>
+							<ModuleInfo>
+								<Name TextId="TOK_DAP_NAME_550P_PNT"/>
+								<InfoText TextId="TOK_DAP_SUB_INFO_550P_PNT"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+					<SystemDefinedSubmoduleList>
+						<InterfaceSubmoduleItem ID="IDS_5I" SubslotNumber="32768" SubmoduleIdentNumber="0x0002" SupportedRT_Classes="RT_CLASS_1;RT_CLASS_3" TextId="TOK_DAP_INTERFACE" SupportedProtocols="SNMP;LLDP" NetworkComponentDiagnosisSupported="false" DCP_HelloSupported="false" PTP_BoundarySupported="true" DCP_BoundarySupported="true" DelayMeasurementSupported="true">
+							<RT_Class3Properties MaxBridgeDelay="5500" MaxNumberIR_FrameData="256" MaxRetentionTime="20000" StartupMode="Legacy;Advanced" ForwardingMode="Relative"/>
+							<SynchronisationMode SupportedRole="SyncSlave" MaxLocalJitter="50" T_PLL_MAX="1000" SupportedSyncProtocols="PTCP"/>
+							<ApplicationRelations NumberOfAR="2" StartupMode="Legacy;Advanced">
+								<TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+								<RT_Class3TimingProperties SendClock="8 16 32 64 128" ReductionRatio="1 2 4 8 16"/>
+							</ApplicationRelations>
+							<MediaRedundancy SupportedRole="Client"/>
+						</InterfaceSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_5P1" SubslotNumber="32769" SubmoduleIdentNumber="0x0003" MAUTypes="16" CheckMAUTypeSupported="true" TextId="TOK_PORT_1" MaxPortRxDelay="340" MaxPortTxDelay="92" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" IsDefaultRingport="true" CheckMAUTypeDifferenceSupported="true">
+							<MAUTypeList>
+								<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_5P2" SubslotNumber="32770" SubmoduleIdentNumber="0x0003" MAUTypes="16" CheckMAUTypeSupported="true" TextId="TOK_PORT_2" MaxPortRxDelay="340" MaxPortTxDelay="92" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" IsDefaultRingport="true" CheckMAUTypeDifferenceSupported="true">
+							<MAUTypeList>
+								<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+					</SystemDefinedSubmoduleList>
+					<Graphics>
+						<GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="ID_Graph_500P_PNT"/>
+					</Graphics>
+				</DeviceAccessPointItem>
+				<DeviceAccessPointItem ID="DAP6:INVERTER300P" PhysicalSlots="0..3" ModuleIdentNumber="0x00000030" 
+MinDeviceInterval="32" ImplementationType="netX90" DNS_CompatibleName="SK300P-PNT" FixedInSlots="0" ObjectUUID_LocalIndex="1" 
+SharedDeviceSupported="true" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" PowerOnToCommReady="0" 
+PNIO_Version="V2.35" NameOfStationNotTransferable="true" ResetToFactoryModes="2" MultipleWriteSupported="true" 
+CheckDeviceID_Allowed="true" LLDP_NoD_Supported="true" SharedInputSupported="false" PrmBeginPrmEndSequenceSupported="false" 
+ParameterizationSpeedupSupported="true">
+					<ModuleInfo CategoryRef="ID_UNIT_NORDAC_ON">
+						<Name TextId="TOK_DAP_NAME_300P_PNT"/>
+						<InfoText TextId="TOK_DAP_DESCRIPTION_300P_PNT"/>
+						<VendorName Value="NORD Electronic DRIVESYSTEMS GmbH"/>
+					</ModuleInfo>
+					<CertificationInfo ConformanceClass="C" ApplicationClass="" NetloadClass="III"/>
+					<SubslotList>
+						<SubslotItem SubslotNumber="32768" TextId="TOK_SUBSLOT_INTERFACE"/>
+						<SubslotItem SubslotNumber="32769" TextId="TOK_SUBSLOT_PORT1"/>
+						<SubslotItem SubslotNumber="32770" TextId="TOK_SUBSLOT_PORT2"/>
+					</SubslotList>
+					<IOConfigData MaxDataLength="400" MaxInputLength="200" MaxOutputLength="200"/>
+					<UseableModules>
+						<ModuleItemRef ModuleItemTarget="EMPTY" AllowedInSlots="1..3"/>
+						<ModuleItemRef ModuleItemTarget="PPO1" AllowedInSlots="3"/>
+						<ModuleItemRef ModuleItemTarget="PPO2" AllowedInSlots="3"/>
+						<ModuleItemRef ModuleItemTarget="PPO3" AllowedInSlots="3"/>
+						<ModuleItemRef ModuleItemTarget="PPO4" AllowedInSlots="3" UsedInSlots="3"/>
+						<ModuleItemRef ModuleItemTarget="PPO6" AllowedInSlots="3"/>
+					</UseableModules>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="DAP 300PPNT SUB" SubmoduleIdentNumber="0x00000001" IM5_Supported="false" MayIssueProcessAlarm="false" Writeable_IM_Records="1 2 3">
+							<IOData/>
+							<ModuleInfo>
+								<Name TextId="TOK_DAP_NAME_300P_PNT"/>
+								<InfoText TextId="TOK_DAP_SUB_INFO_300P_PNT"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+					<SystemDefinedSubmoduleList>
+						<InterfaceSubmoduleItem ID="IDS_6I" SubslotNumber="32768" SubmoduleIdentNumber="0x0002" SupportedRT_Classes="RT_CLASS_1;RT_CLASS_3" TextId="TOK_DAP_INTERFACE" SupportedProtocols="SNMP;LLDP" NetworkComponentDiagnosisSupported="false" DCP_HelloSupported="false" PTP_BoundarySupported="true" DCP_BoundarySupported="true" DelayMeasurementSupported="true" UsesStaticARP_CacheEntries="true">
+							<RT_Class3Properties MaxBridgeDelay="5500" MaxNumberIR_FrameData="256" MaxRetentionTime="20000" StartupMode="Legacy;Advanced" ForwardingMode="Relative"/>
+							<SynchronisationMode SupportedRole="SyncSlave" MaxLocalJitter="50" T_PLL_MAX="1000" SupportedSyncProtocols="PTCP"/>
+							<ApplicationRelations NumberOfAR="2" StartupMode="Legacy;Advanced">
+								<TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+								<RT_Class3TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16"/>
+							</ApplicationRelations>
+							<MediaRedundancy SupportedRole="Client"/>
+						</InterfaceSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_6P1" SubslotNumber="32769" SubmoduleIdentNumber="0x0003" MAUTypes="16" CheckMAUTypeSupported="true" TextId="TOK_PORT_1" MaxPortRxDelay="220" MaxPortTxDelay="116" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" IsDefaultRingport="true" CheckMAUTypeDifferenceSupported="true">
+							<MAUTypeList>
+								<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_6P2" SubslotNumber="32770" SubmoduleIdentNumber="0x0003" MAUTypes="16" CheckMAUTypeSupported="true" TextId="TOK_PORT_2" MaxPortRxDelay="220" MaxPortTxDelay="116" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" IsDefaultRingport="true" CheckMAUTypeDifferenceSupported="true">
+							<MAUTypeList>
+								<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+					</SystemDefinedSubmoduleList>
+					<Graphics>
+						<GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="ID_Graph_300P_PNT"/>
+					</Graphics>
+				</DeviceAccessPointItem>
+				<DeviceAccessPointItem ID="DAP7:CU4ETH_I" PhysicalSlots="0..10" ModuleIdentNumber="0x00000040" MinDeviceInterval="32" 
+ImplementationType="netX90" DNS_CompatibleName="SK-CU4-ETH" FixedInSlots="0" ObjectUUID_LocalIndex="1" 
+SharedDeviceSupported="true" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" PowerOnToCommReady="0" 
+PNIO_Version="V2.41" NameOfStationNotTransferable="true" ResetToFactoryModes="2" MultipleWriteSupported="true" 
+CheckDeviceID_Allowed="true" LLDP_NoD_Supported="true" SharedInputSupported="false" PrmBeginPrmEndSequenceSupported="false" 
+ParameterizationSpeedupSupported="true">
+					<ModuleInfo CategoryRef="ID_UNIT_200E">
+						<Name TextId="TOK_DAP_NAME_CU4ETH"/>
+						<InfoText TextId="TOK_DAP_DESCRIPTION_CU4"/>
+						<VendorName Value="NORD Electronic DRIVESYSTEMS GmbH"/>
+					</ModuleInfo>
+					<CertificationInfo ConformanceClass="C" ApplicationClass="" NetloadClass="III"/>
+					<SubslotList>
+						<SubslotItem SubslotNumber="32768" TextId="TOK_SUBSLOT_INTERFACE"/>
+						<SubslotItem SubslotNumber="32769" TextId="TOK_SUBSLOT_PORT1"/>
+						<SubslotItem SubslotNumber="32770" TextId="TOK_SUBSLOT_PORT2"/>
+					</SubslotList>
+					<IOConfigData MaxDataLength="400" MaxInputLength="200" MaxOutputLength="200"/>
+					<UseableModules>
+						<ModuleItemRef ModuleItemTarget="EMPTY" AllowedInSlots="1..10"/>
+						<ModuleItemRef ModuleItemTarget="TUPNTIN" AllowedInSlots="2" UsedInSlots="2"/>
+						<ModuleItemRef ModuleItemTarget="PPO1" AllowedInSlots="3..10"/>
+						<ModuleItemRef ModuleItemTarget="PPO2" AllowedInSlots="3..10"/>
+						<ModuleItemRef ModuleItemTarget="PPO3" AllowedInSlots="3..10"/>
+						<ModuleItemRef ModuleItemTarget="PPO4" AllowedInSlots="3..10" UsedInSlots="3"/>
+						<ModuleItemRef ModuleItemTarget="PPO6" AllowedInSlots="3..10"/>
+					</UseableModules>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="DAP CU4ETH_I SUB" SubmoduleIdentNumber="0x00000001" IM5_Supported="false" MayIssueProcessAlarm="false" Writeable_IM_Records="1 2 3">
+							<IOData/>
+							<ModuleInfo>
+								<Name TextId="TOK_DAP_NAME_CU4ETH"/>
+								<InfoText TextId="TOK_DAP_SUB_INFO_CU4ETH"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+					<SystemDefinedSubmoduleList>
+						<InterfaceSubmoduleItem ID="IDS_7I" SubslotNumber="32768" SubmoduleIdentNumber="0x0002" SupportedRT_Classes="RT_CLASS_1;RT_CLASS_3" TextId="TOK_DAP_INTERFACE" SupportedProtocols="SNMP;LLDP" NetworkComponentDiagnosisSupported="false" DCP_HelloSupported="false" PTP_BoundarySupported="true" DCP_BoundarySupported="true" DelayMeasurementSupported="true" UsesStaticARP_CacheEntries="true">
+							<RT_Class3Properties MaxBridgeDelay="5500" MaxNumberIR_FrameData="256" MaxRetentionTime="20000" StartupMode="Legacy;Advanced" ForwardingMode="Relative"/>
+							<SynchronisationMode SupportedRole="SyncSlave" MaxLocalJitter="50" T_PLL_MAX="1000" SupportedSyncProtocols="PTCP"/>
+							<ApplicationRelations NumberOfAR="2" StartupMode="Legacy;Advanced">
+								<TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+								<RT_Class3TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16"/>
+							</ApplicationRelations>
+							<MediaRedundancy SupportedRole="Client"/>
+						</InterfaceSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_7P1" SubslotNumber="32769" SubmoduleIdentNumber="0x0003" MAUTypes="16" CheckMAUTypeSupported="true" TextId="TOK_PORT_1" MaxPortRxDelay="220" MaxPortTxDelay="116" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" IsDefaultRingport="true" CheckMAUTypeDifferenceSupported="true">
+							<MAUTypeList>
+								<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_7P2" SubslotNumber="32770" SubmoduleIdentNumber="0x0003" MAUTypes="16" CheckMAUTypeSupported="true" TextId="TOK_PORT_2" MaxPortRxDelay="220" MaxPortTxDelay="116" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" IsDefaultRingport="true" CheckMAUTypeDifferenceSupported="true">
+							<MAUTypeList>
+								<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+					</SystemDefinedSubmoduleList>
+					<Graphics>
+						<GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="ID_Graph_CU4_ETH"/>
+					</Graphics>
+				</DeviceAccessPointItem>
+				<DeviceAccessPointItem ID="DAP9:TU4ETH" PhysicalSlots="0..10" ModuleIdentNumber="0x00000042" MinDeviceInterval="32" 
+ImplementationType="netX90" DNS_CompatibleName="SK-TU4-ETH-PNT" FixedInSlots="0" ObjectUUID_LocalIndex="1" 
+SharedDeviceSupported="true" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" PowerOnToCommReady="0" 
+PNIO_Version="V2.41" NameOfStationNotTransferable="true" ResetToFactoryModes="2" MultipleWriteSupported="true" 
+CheckDeviceID_Allowed="true" LLDP_NoD_Supported="true" SharedInputSupported="false" PrmBeginPrmEndSequenceSupported="false" 
+ParameterizationSpeedupSupported="true">
+					<ModuleInfo CategoryRef="ID_UNIT_200E">
+						<Name TextId="TOK_DAP_NAME_TU4ETH"/>
+						<InfoText TextId="TOK_DAP_DESCRIPTION_TU4"/>
+						<VendorName Value="NORD Electronic DRIVESYSTEMS GmbH"/>
+					</ModuleInfo>
+					<CertificationInfo ConformanceClass="C" ApplicationClass="" NetloadClass="III"/>
+					<SubslotList>
+						<SubslotItem SubslotNumber="32768" TextId="TOK_SUBSLOT_INTERFACE"/>
+						<SubslotItem SubslotNumber="32769" TextId="TOK_SUBSLOT_PORT1"/>
+						<SubslotItem SubslotNumber="32770" TextId="TOK_SUBSLOT_PORT2"/>
+					</SubslotList>
+					<IOConfigData MaxDataLength="400" MaxInputLength="200" MaxOutputLength="200"/>
+					<UseableModules>
+						<ModuleItemRef ModuleItemTarget="EMPTY" AllowedInSlots="1..10"/>
+						<ModuleItemRef ModuleItemTarget="TUPNTIO" AllowedInSlots="2" UsedInSlots="2"/>
+						<ModuleItemRef ModuleItemTarget="PPO1" AllowedInSlots="3..10"/>
+						<ModuleItemRef ModuleItemTarget="PPO2" AllowedInSlots="3..10"/>
+						<ModuleItemRef ModuleItemTarget="PPO3" AllowedInSlots="3..10"/>
+						<ModuleItemRef ModuleItemTarget="PPO4" AllowedInSlots="3..10" UsedInSlots="3"/>
+						<ModuleItemRef ModuleItemTarget="PPO6" AllowedInSlots="3..10"/>
+					</UseableModules>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="DAP TU4ETH SUB" SubmoduleIdentNumber="0x00000001" IM5_Supported="false" MayIssueProcessAlarm="false" Writeable_IM_Records="1 2 3">
+							<IOData/>
+							<ModuleInfo>
+								<Name TextId="TOK_DAP_NAME_TU4ETH"/>
+								<InfoText TextId="TOK_DAP_SUB_INFO_TU4ETH"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+					<SystemDefinedSubmoduleList>
+						<InterfaceSubmoduleItem ID="IDS_9I" SubslotNumber="32768" SubmoduleIdentNumber="0x0002" SupportedRT_Classes="RT_CLASS_1;RT_CLASS_3" TextId="TOK_DAP_INTERFACE" SupportedProtocols="SNMP;LLDP" NetworkComponentDiagnosisSupported="false" DCP_HelloSupported="false" PTP_BoundarySupported="true" DCP_BoundarySupported="true" DelayMeasurementSupported="true" UsesStaticARP_CacheEntries="true">
+							<RT_Class3Properties MaxBridgeDelay="5500" MaxNumberIR_FrameData="256" MaxRetentionTime="20000" StartupMode="Legacy;Advanced" ForwardingMode="Relative"/>
+							<SynchronisationMode SupportedRole="SyncSlave" MaxLocalJitter="50" T_PLL_MAX="1000" SupportedSyncProtocols="PTCP"/>
+							<ApplicationRelations NumberOfAR="2" StartupMode="Legacy;Advanced">
+								<TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+								<RT_Class3TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16"/>
+							</ApplicationRelations>
+							<MediaRedundancy SupportedRole="Client"/>
+						</InterfaceSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_9P1" SubslotNumber="32769" SubmoduleIdentNumber="0x0003" MAUTypes="16" CheckMAUTypeSupported="true" TextId="TOK_PORT_1" MaxPortRxDelay="220" MaxPortTxDelay="116" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" IsDefaultRingport="true" CheckMAUTypeDifferenceSupported="true">
+							<MAUTypeList>
+								<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+						<PortSubmoduleItem ID="IDS_9P2" SubslotNumber="32770" SubmoduleIdentNumber="0x0003" MAUTypes="16" CheckMAUTypeSupported="true" TextId="TOK_PORT_2" MaxPortRxDelay="220" MaxPortTxDelay="116" PortDeactivationSupported="true" LinkStateDiagnosisCapability="Up+Down" IsDefaultRingport="true" CheckMAUTypeDifferenceSupported="true">
+							<MAUTypeList>
+								<MAUTypeItem Value="16" AdjustSupported="true"/>
+							</MAUTypeList>
+						</PortSubmoduleItem>
+					</SystemDefinedSubmoduleList>
+					<Graphics>
+						<GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="ID_Graph_TU4_ETH"/>
+					</Graphics>
+				</DeviceAccessPointItem>
+			</DeviceAccessPointList>
+			<!-- ============================================================================================ -->
+			<!--                                  MODULE LIST                                                 -->
+			<!-- ============================================================================================ -->
+			<ModuleList>
+				<!--Leer - Modul-->
+				<ModuleItem ID="EMPTY" ModuleIdentNumber="0x00000003">
+					<ModuleInfo>
+						<Name TextId="TOK_EMPTY"/>
+						<InfoText TextId="TOK_EMPTY_INFO"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="EMPTY_SUB" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="false">
+							<IOData/>
+							<ModuleInfo>
+								<Name TextId="TOK_EMPTY"/>
+								<InfoText TextId="TOK_EMPTY_INFO"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<!--Daten TUPNTIO -->
+				<ModuleItem ID="TUPNTIO" ModuleIdentNumber="0x00000005">
+					<ModuleInfo>
+						<Name TextId="TOK_DIGIO"/>
+						<InfoText TextId="TOK_TU_INFO"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="TUPNTIO_SUB" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="false">
+							<IOData>
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" UseAsBits="false" TextId="TOK_INPUT"/>
+								</Input>
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" UseAsBits="false" TextId="TOK_OUTPUT"/>
+								</Output>
+							</IOData>
+							<ModuleInfo>
+								<Name TextId="TOK_TU_SUB"/>
+								<InfoText TextId="TOK_TU_SUB_INFO"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<!--PPO3 - Modul-->
+				<ModuleItem ID="PPO3" ModuleIdentNumber="0x00000006">
+					<ModuleInfo>
+						<Name TextId="TOK_PPO3"/>
+						<InfoText TextId="TOK_PPO3_INFO"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="PPO3_SUB" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="false">
+							<IOData>
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="TOK_ZSW"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_IW1"/>
+								</Input>
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="TOK_STW"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_SW1"/>
+								</Output>
+							</IOData>
+							<ModuleInfo>
+								<Name TextId="TOK_PPO3"/>
+								<InfoText TextId="TOK_PPO3_SUB_INFO"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<!--PPO4 - Modul-->
+				<ModuleItem ID="PPO4" ModuleIdentNumber="0x00000007">
+					<ModuleInfo>
+						<Name TextId="TOK_PPO4"/>
+						<InfoText TextId="TOK_PPO4_INFO"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="PP04_SUB" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="false">
+							<IOData>
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="TOK_ZSW"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_IW1"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_IW2"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_IW3"/>
+								</Input>
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="TOK_STW"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_SW1"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_SW2"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_SW3"/>
+								</Output>
+							</IOData>
+							<ModuleInfo>
+								<Name TextId="TOK_PPO4"/>
+								<InfoText TextId="TOK_PPO4_SUB_INFO"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<!--PPO6 - Modul-->
+				<ModuleItem ID="PPO6" ModuleIdentNumber="0x00000008">
+					<ModuleInfo>
+						<Name TextId="TOK_PPO6"/>
+						<InfoText TextId="TOK_PPO6_INFO"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="PP06_SUB" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="false">
+							<IOData>
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="TOK_ZSW"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_IW1"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_IW2"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_IW3"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_IW4"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_IW5"/>
+								</Input>
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="TOK_STW"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_SW1"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_SW2"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_SW3"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_SW4"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_SW5"/>
+								</Output>
+							</IOData>
+							<ModuleInfo>
+								<Name TextId="TOK_PPO6"/>
+								<InfoText TextId="TOK_PPO6_SUB_INFO"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<!--PPO1 - Modul-->
+				<ModuleItem ID="PPO1" ModuleIdentNumber="0x00000009">
+					<ModuleInfo>
+						<Name TextId="TOK_PPO1"/>
+						<InfoText TextId="TOK_PPO1_INFO"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="PP01_SUB" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="false">
+							<IOData>
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="TOK_ANSWER_PKE"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_ANSWER_INDEX"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_ANSWER_VALUE_HI"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_ANSWER_VALUE_LO"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_ZSW"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_IW1"/>
+								</Input>
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="TOK_ORDER_PKE"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_ORDER_INDEX"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_ORDER_VALUE_HI"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_ORDER_VALUE_LO"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_STW"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_SW1"/>
+								</Output>
+							</IOData>
+							<ModuleInfo>
+								<Name TextId="TOK_PPO1"/>
+								<InfoText TextId="TOK_PPO1_SUB_INFO"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<!--PPO2 - Modul-->
+				<ModuleItem ID="PPO2" ModuleIdentNumber="0x0000000A">
+					<ModuleInfo>
+						<Name TextId="TOK_PPO2"/>
+						<InfoText TextId="TOK_PPO2_INFO"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="PP02_SUB" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="false">
+							<IOData>
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="TOK_ANSWER_PKE"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_ANSWER_INDEX"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_ANSWER_VALUE_HI"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_ANSWER_VALUE_LO"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_ZSW"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_IW1"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_IW2"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_IW3"/>
+								</Input>
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="TOK_ORDER_PKE"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_ORDER_INDEX"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_ORDER_VALUE_HI"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_ORDER_VALUE_LO"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_STW"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_SW1"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_SW2"/>
+									<DataItem DataType="Unsigned16" TextId="TOK_SW3"/>
+								</Output>
+							</IOData>
+							<ModuleInfo>
+								<Name TextId="TOK_PPO2"/>
+								<InfoText TextId="TOK_PPO2_SUB_INFO"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<!--Daten TUPNTIN-->
+				<ModuleItem ID="TUPNTIN" ModuleIdentNumber="0x0000000B">
+					<ModuleInfo>
+						<Name TextId="TOK_DIGIN"/>
+						<InfoText TextId="TOK_TU_IN_INFO"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="TUPNT_IN_SUB" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="false">
+							<IOData>
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" UseAsBits="false" TextId="TOK_INPUT"/>
+								</Input>
+							</IOData>
+							<ModuleInfo>
+								<Name TextId="TOK_TU_IN_SUB"/>
+								<InfoText TextId="TOK_TU_SUB_INFO"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<!--Daten PNSAFE-->
+				<ModuleItem ID="PNSAFE" ModuleIdentNumber="0x00000010">
+					<ModuleInfo>
+						<Name TextId="TOK_PNSAFE"/>
+						<InfoText TextId="TOK_PNSAFE_INFO"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="PNSAFE_SUB" SubmoduleIdentNumber="0x00000001" PROFIsafeSupported="true" MayIssueProcessAlarm="false">
+							<IOData F_IO_StructureDescCRC="47899">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="TOK_PNSAFE_STATE1"/>
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="TOK_PNSAFE_STATE2"/>
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="TOK_PNSAFE_STATE3"/>
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="TOK_PNSAFE_STATE4"/>
+									<DataItem DataType="F_MessageTrailer4Byte" TextId="TOK_PNSAFE_IN_SAFETY"/>
+								</Input>
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="TOK_PNSAFE_CTRL1"/>
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="TOK_PNSAFE_CTRL2"/>
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="TOK_PNSAFE_CTRL3"/>
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="TOK_PNSAFE_CTRL4"/>
+									<DataItem DataType="F_MessageTrailer4Byte" TextId="TOK_PNSAFE_OUT_SAFETY"/>
+								</Output>
+							</IOData>
+							<RecordDataList>
+								<F_ParameterRecordDataItem Index="110" F_ParamDescCRC="21982">
+									<F_Check_iPar DefaultValue="NoCheck" Changeable="false" Visible="false"/>
+									<F_SIL DefaultValue="SIL3" AllowedValues="SIL1 SIL2 SIL3" Changeable="true"/>
+									<F_CRC_Length DefaultValue="3-Byte-CRC" AllowedValues="3-Byte-CRC" Visible="true"/>
+									<F_Block_ID DefaultValue="1" AllowedValues="0..7" Visible="true"/>
+									<F_Par_Version DefaultValue="1" Visible="true" Changeable="false"/>
+									<F_Source_Add DefaultValue="1" AllowedValues="1..65534"/>
+									<F_Dest_Add DefaultValue="1" AllowedValues="1..65534"/>
+									<F_WD_Time DefaultValue="150" AllowedValues="150..10000"/>
+									<F_Par_CRC DefaultValue="31615"/>
+									<F_iPar_CRC DefaultValue="0"/>
+								</F_ParameterRecordDataItem>
+							</RecordDataList>
+							<ModuleInfo>
+								<Name TextId="TOK_PNSAFE"/>
+								<InfoText TextId="TOK_PNSAFE_SUB_INFO"/>
+							</ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+			</ModuleList>
+			<!-- ============================================ -->
+			<!--       Channel diagnosis list                 -->
+			<!-- ============================================ -->
+			<ChannelDiagList>
+				<ChannelDiagItem ErrorType="64">
+					<Name TextId="TOK_Name_ErrorType64"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="65">
+					<Name TextId="TOK_Name_ErrorType65"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="66">
+					<Name TextId="TOK_Name_ErrorType66"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="67">
+					<Name TextId="TOK_Name_ErrorType67"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="68">
+					<Name TextId="TOK_Name_ErrorType68"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="69">
+					<Name TextId="TOK_Name_ErrorType69"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="70">
+					<Name TextId="TOK_Name_ErrorType70"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="71">
+					<Name TextId="TOK_Name_ErrorType71"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="75">
+					<Name TextId="TOK_Name_ErrorType75"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="72">
+					<Name TextId="TOK_Name_ErrorType72"/>
+					<ExtChannelDiagList>
+						<ExtChannelDiagItem ErrorType="5503">
+							<Name TextId="TOK_Name_ExtErrorType5503"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5711">
+							<Name TextId="TOK_Name_ExtErrorType5711"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5712">
+							<Name TextId="TOK_Name_ExtErrorType5712"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5713">
+							<Name TextId="TOK_Name_ExtErrorType5713"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5714">
+							<Name TextId="TOK_Name_ExtErrorType5714"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5715">
+							<Name TextId="TOK_Name_ExtErrorType5715"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5716">
+							<Name TextId="TOK_Name_ExtErrorType5716"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5717">
+							<Name TextId="TOK_Name_ExtErrorType5717"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5718">
+							<Name TextId="TOK_Name_ExtErrorType5718"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5719">
+							<Name TextId="TOK_Name_ExtErrorType5719"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5721">
+							<Name TextId="TOK_Name_ExtErrorType5721"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5722">
+							<Name TextId="TOK_Name_ExtErrorType5722"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5723">
+							<Name TextId="TOK_Name_ExtErrorType5723"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5724">
+							<Name TextId="TOK_Name_ExtErrorType5724"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5725">
+							<Name TextId="TOK_Name_ExtErrorType5725"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5726">
+							<Name TextId="TOK_Name_ExtErrorType5726"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5731">
+							<Name TextId="TOK_Name_ExtErrorType5731"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5732">
+							<Name TextId="TOK_Name_ExtErrorType5732"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5733">
+							<Name TextId="TOK_Name_ExtErrorType5733"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5734">
+							<Name TextId="TOK_Name_ExtErrorType5734"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5735">
+							<Name TextId="TOK_Name_ExtErrorType5735"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5736">
+							<Name TextId="TOK_Name_ExtErrorType5736"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5737">
+							<Name TextId="TOK_Name_ExtErrorType5737"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5738">
+							<Name TextId="TOK_Name_ExtErrorType5738"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5741">
+							<Name TextId="TOK_Name_ExtErrorType5741"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5742">
+							<Name TextId="TOK_Name_ExtErrorType5742"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5743">
+							<Name TextId="TOK_Name_ExtErrorType5743"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5744">
+							<Name TextId="TOK_Name_ExtErrorType5744"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5745">
+							<Name TextId="TOK_Name_ExtErrorType5745"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5746">
+							<Name TextId="TOK_Name_ExtErrorType5746"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5747">
+							<Name TextId="TOK_Name_ExtErrorType5747"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5748">
+							<Name TextId="TOK_Name_ExtErrorType5748"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5749">
+							<Name TextId="TOK_Name_ExtErrorType5749"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5751">
+							<Name TextId="TOK_Name_ExtErrorType5751"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5752">
+							<Name TextId="TOK_Name_ExtErrorType5752"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5753">
+							<Name TextId="TOK_Name_ExtErrorType5753"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5754">
+							<Name TextId="TOK_Name_ExtErrorType5754"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5755">
+							<Name TextId="TOK_Name_ExtErrorType5755"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5756">
+							<Name TextId="TOK_Name_ExtErrorType5756"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5757">
+							<Name TextId="TOK_Name_ExtErrorType5757"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5758">
+							<Name TextId="TOK_Name_ExtErrorType5758"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5759">
+							<Name TextId="TOK_Name_ExtErrorType5759"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5761">
+							<Name TextId="TOK_Name_ExtErrorType5761"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5762">
+							<Name TextId="TOK_Name_ExtErrorType5762"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5763">
+							<Name TextId="TOK_Name_ExtErrorType5763"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5764">
+							<Name TextId="TOK_Name_ExtErrorType5764"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5765">
+							<Name TextId="TOK_Name_ExtErrorType5765"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5766">
+							<Name TextId="TOK_Name_ExtErrorType5766"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5771">
+							<Name TextId="TOK_Name_ExtErrorType5771"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5772">
+							<Name TextId="TOK_Name_ExtErrorType5772"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5773">
+							<Name TextId="TOK_Name_ExtErrorType5773"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5774">
+							<Name TextId="TOK_Name_ExtErrorType5774"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5775">
+							<Name TextId="TOK_Name_ExtErrorType5775"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5776">
+							<Name TextId="TOK_Name_ExtErrorType5776"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5781">
+							<Name TextId="TOK_Name_ExtErrorType5781"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5782">
+							<Name TextId="TOK_Name_ExtErrorType5782"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5783">
+							<Name TextId="TOK_Name_ExtErrorType5783"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5784">
+							<Name TextId="TOK_Name_ExtErrorType5784"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5785">
+							<Name TextId="TOK_Name_ExtErrorType5785"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5791">
+							<Name TextId="TOK_Name_ExtErrorType5791"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5792">
+							<Name TextId="TOK_Name_ExtErrorType5792"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5797">
+							<Name TextId="TOK_Name_ExtErrorType5797"/>
+						</ExtChannelDiagItem>
+						<ExtChannelDiagItem ErrorType="5799">
+							<Name TextId="TOK_Name_ExtErrorType5799"/>
+						</ExtChannelDiagItem>
+					</ExtChannelDiagList>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="266">
+					<Name TextId="TOK_Name_ErrorType266"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="267">
+					<Name TextId="TOK_Name_ErrorType267"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="276">
+					<Name TextId="TOK_Name_ErrorType276"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="277">
+					<Name TextId="TOK_Name_ErrorType277"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="278">
+					<Name TextId="TOK_Name_ErrorType278"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="286">
+					<Name TextId="TOK_Name_ErrorType286"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="287">
+					<Name TextId="TOK_Name_ErrorType287"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="288">
+					<Name TextId="TOK_Name_ErrorType288"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="289">
+					<Name TextId="TOK_Name_ErrorType289"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="296">
+					<Name TextId="TOK_Name_ErrorType296"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="297">
+					<Name TextId="TOK_Name_ErrorType297"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="301">
+					<Name TextId="TOK_Name_ErrorType301"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="306">
+					<Name TextId="TOK_Name_ErrorType306"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="307">
+					<Name TextId="TOK_Name_ErrorType307"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="316">
+					<Name TextId="TOK_Name_ErrorType316"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="317">
+					<Name TextId="TOK_Name_ErrorType317"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="326">
+					<Name TextId="TOK_Name_ErrorType326"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="336">
+					<Name TextId="TOK_Name_ErrorType336"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="337">
+					<Name TextId="TOK_Name_ErrorType337"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="338">
+					<Name TextId="TOK_Name_ErrorType338"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="339">
+					<Name TextId="TOK_Name_ErrorType339"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="340">
+					<Name TextId="TOK_Name_ErrorType340"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="341">
+					<Name TextId="TOK_Name_ErrorType341"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="342">
+					<Name TextId="TOK_Name_ErrorType342"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="343">
+					<Name TextId="TOK_Name_ErrorType343"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="344">
+					<Name TextId="TOK_Name_ErrorType344"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="345">
+					<Name TextId="TOK_Name_ErrorType345"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="356">
+					<Name TextId="TOK_Name_ErrorType356"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="357">
+					<Name TextId="TOK_Name_ErrorType357"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="358">
+					<Name TextId="TOK_Name_ErrorType358"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="359">
+					<Name TextId="TOK_Name_ErrorType359"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="360">
+					<Name TextId="TOK_Name_ErrorType360"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="361">
+					<Name TextId="TOK_Name_ErrorType361"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="362">
+					<Name TextId="TOK_Name_ErrorType362"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="363">
+					<Name TextId="TOK_Name_ErrorType363"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="364">
+					<Name TextId="TOK_Name_ErrorType364"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="365">
+					<Name TextId="TOK_Name_ErrorType365"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="366">
+					<Name TextId="TOK_Name_ErrorType366"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="376">
+					<Name TextId="TOK_Name_ErrorType376"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="377">
+					<Name TextId="TOK_Name_ErrorType377"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="378">
+					<Name TextId="TOK_Name_ErrorType378"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="379">
+					<Name TextId="TOK_Name_ErrorType379"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="380">
+					<Name TextId="TOK_Name_ErrorType380"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="381">
+					<Name TextId="TOK_Name_ErrorType381"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="384">
+					<Name TextId="TOK_Name_ErrorType384"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="385">
+					<Name TextId="TOK_Name_ErrorType385"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="386">
+					<Name TextId="TOK_Name_ErrorType386"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="387">
+					<Name TextId="TOK_Name_ErrorType387"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="388">
+					<Name TextId="TOK_Name_ErrorType388"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="391">
+					<Name TextId="TOK_Name_ErrorType391"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="392">
+					<Name TextId="TOK_Name_ErrorType392"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="396">
+					<Name TextId="TOK_Name_ErrorType396"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="397">
+					<Name TextId="TOK_Name_ErrorType397"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="398">
+					<Name TextId="TOK_Name_ErrorType398"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="399">
+					<Name TextId="TOK_Name_ErrorType399"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="400">
+					<Name TextId="TOK_Name_ErrorType400"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="401">
+					<Name TextId="TOK_Name_ErrorType401"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="402">
+					<Name TextId="TOK_Name_ErrorType402"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="403">
+					<Name TextId="TOK_Name_ErrorType403"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="404">
+					<Name TextId="TOK_Name_ErrorType404"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="406">
+					<Name TextId="TOK_Name_ErrorType406"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="407">
+					<Name TextId="TOK_Name_ErrorType407"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="408">
+					<Name TextId="TOK_Name_ErrorType408"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="409">
+					<Name TextId="TOK_Name_ErrorType409"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="410">
+					<Name TextId="TOK_Name_ErrorType410"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="411">
+					<Name TextId="TOK_Name_ErrorType411"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="412">
+					<Name TextId="TOK_Name_ErrorType412"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="413">
+					<Name TextId="TOK_Name_ErrorType413"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="414">
+					<Name TextId="TOK_Name_ErrorType414"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="416">
+					<Name TextId="TOK_Name_ErrorType416"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="417">
+					<Name TextId="TOK_Name_ErrorType417"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="426">
+					<Name TextId="TOK_Name_ErrorType426"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="436">
+					<Name TextId="TOK_Name_ErrorType436"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="437">
+					<Name TextId="TOK_Name_ErrorType437"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="438">
+					<Name TextId="TOK_Name_ErrorType438"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="439">
+					<Name TextId="TOK_Name_ErrorType439"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="440">
+					<Name TextId="TOK_Name_ErrorType440"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="446">
+					<Name TextId="TOK_Name_ErrorType446"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="447">
+					<Name TextId="TOK_Name_ErrorType447"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="456">
+					<Name TextId="TOK_Name_ErrorType456"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="457">
+					<Name TextId="TOK_Name_ErrorType457"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="458">
+					<Name TextId="TOK_Name_ErrorType458"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="459">
+					<Name TextId="TOK_Name_ErrorType459"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="460">
+					<Name TextId="TOK_Name_ErrorType460"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="461">
+					<Name TextId="TOK_Name_ErrorType461"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="462">
+					<Name TextId="TOK_Name_ErrorType462"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="463">
+					<Name TextId="TOK_Name_ErrorType463"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="464">
+					<Name TextId="TOK_Name_ErrorType464"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="465">
+					<Name TextId="TOK_Name_ErrorType465"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="466">
+					<Name TextId="TOK_Name_ErrorType466"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="467">
+					<Name TextId="TOK_Name_ErrorType467"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="468">
+					<Name TextId="TOK_Name_ErrorType468"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="469">
+					<Name TextId="TOK_Name_ErrorType469"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="470">
+					<Name TextId="TOK_Name_ErrorType470"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="476">
+					<Name TextId="TOK_Name_ErrorType476"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="477">
+					<Name TextId="TOK_Name_ErrorType477"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="478">
+					<Name TextId="TOK_Name_ErrorType478"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="479">
+					<Name TextId="TOK_Name_ErrorType479"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="480">
+					<Name TextId="TOK_Name_ErrorType480"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="481">
+					<Name TextId="TOK_Name_ErrorType481"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="482">
+					<Name TextId="TOK_Name_ErrorType482"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="485">
+					<Name TextId="TOK_Name_ErrorType485"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="486">
+					<Name TextId="TOK_Name_ErrorType486"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="487">
+					<Name TextId="TOK_Name_ErrorType487"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="488">
+					<Name TextId="TOK_Name_ErrorType488"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="489">
+					<Name TextId="TOK_Name_ErrorType489"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="490">
+					<Name TextId="TOK_Name_ErrorType490"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="491">
+					<Name TextId="TOK_Name_ErrorType491"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="492">
+					<Name TextId="TOK_Name_ErrorType492"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="493">
+					<Name TextId="TOK_Name_ErrorType493"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="496">
+					<Name TextId="TOK_Name_ErrorType496"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="497">
+					<Name TextId="TOK_Name_ErrorType497"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="498">
+					<Name TextId="TOK_Name_ErrorType498"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="499">
+					<Name TextId="TOK_Name_ErrorType499"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="500">
+					<Name TextId="TOK_Name_ErrorType500"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="501">
+					<Name TextId="TOK_Name_ErrorType501"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="502">
+					<Name TextId="TOK_Name_ErrorType502"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="503">
+					<Name TextId="TOK_Name_ErrorType503"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="506">
+					<Name TextId="TOK_Name_ErrorType506"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="507">
+					<Name TextId="TOK_Name_ErrorType507"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="508">
+					<Name TextId="TOK_Name_ErrorType508"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="509">
+					<Name TextId="TOK_Name_ErrorType509"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="510">
+					<Name TextId="TOK_Name_ErrorType510"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="1156">
+					<Name TextId="TOK_Name_ErrorType1156"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="1166">
+					<Name TextId="TOK_Name_ErrorType1166"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="1167">
+					<Name TextId="TOK_Name_ErrorType1167"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="1168">
+					<Name TextId="TOK_Name_ErrorType1168"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="1169">
+					<Name TextId="TOK_Name_ErrorType1169"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="1246">
+					<Name TextId="TOK_Name_ErrorType1246"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="1256">
+					<Name TextId="TOK_Name_ErrorType1256"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="1266">
+					<Name TextId="TOK_Name_ErrorType1266"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="1276">
+					<Name TextId="TOK_Name_ErrorType1276"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="1286">
+					<Name TextId="TOK_Name_ErrorType1286"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="1296">
+					<Name TextId="TOK_Name_ErrorType1296"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="1356">
+					<Name TextId="TOK_Name_ErrorType1356"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="1357">
+					<Name TextId="TOK_Name_ErrorType1357"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="1358">
+					<Name TextId="TOK_Name_ErrorType1358"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="2256">
+					<Name TextId="TOK_Name_ErrorType2256"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="2257">
+					<Name TextId="TOK_Name_ErrorType2257"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="2266">
+					<Name TextId="TOK_Name_ErrorType2266"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="2276">
+					<Name TextId="TOK_Name_ErrorType2276"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="2456">
+					<Name TextId="TOK_Name_ErrorType2456"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="2457">
+					<Name TextId="TOK_Name_ErrorType2457"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="2458">
+					<Name TextId="TOK_Name_ErrorType2458"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="2459">
+					<Name TextId="TOK_Name_ErrorType2459"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="2460">
+					<Name TextId="TOK_Name_ErrorType2460"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="3246">
+					<Name TextId="TOK_Name_ErrorType3246"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="5756">
+					<Name TextId="TOK_Name_ErrorType5756"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="5757">
+					<Name TextId="TOK_Name_ErrorType5757"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="5758">
+					<Name TextId="TOK_Name_ErrorType5758"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="5759">
+					<Name TextId="TOK_Name_ErrorType5759"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="5760">
+					<Name TextId="TOK_Name_ErrorType5760"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="5761">
+					<Name TextId="TOK_Name_ErrorType5761"/>
+				</ChannelDiagItem>
+				<ChannelDiagItem ErrorType="5896">
+					<Name TextId="TOK_Name_ErrorType5896"/>
+				</ChannelDiagItem>
+			</ChannelDiagList>
+			<!-- ============================================================================================ -->
+			<!--     Graphic List                                                                             -->
+			<!-- ============================================================================================ -->
+			<GraphicsList>
+				<GraphicItem ID="ID_Graph_TU3" GraphicFile="GSDML-0189-0001-TU3-PNT"/>
+				<GraphicItem ID="ID_Graph_TU4" GraphicFile="GSDML-0189-0001-TU4-PNT"/>
+				<GraphicItem ID="ID_Graph_CU4" GraphicFile="GSDML-0189-0001-CU4-PNT"/>
+				<GraphicItem ID="ID_Graph_TU4SAF" GraphicFile="GSDML-0189-0001-TU4-PNTSAF"/>
+				<GraphicItem ID="ID_Graph_500P_PNT" GraphicFile="GSDML-0189-0001-550P-PNT"/>
+				<GraphicItem ID="ID_Graph_300P_PNT" GraphicFile="GSDML-0189-0001-300P-PNT"/>
+				<GraphicItem ID="ID_Graph_CU4_ETH" GraphicFile="GSDML-0189-0002-CU4-PNT"/>
+				<GraphicItem ID="ID_Graph_CU4_ETH_IO" GraphicFile="GSDML-0189-0003-CU4-PNT"/>
+				<GraphicItem ID="ID_Graph_TU4_ETH" GraphicFile="GSDML-0189-0002-TU4-PNT"/>
+				<GraphicItem ID="ID_Graph_TU4_ETHSAF" GraphicFile="GSDML-0189-0002-TU4-PNTSAF"/>
+			</GraphicsList>
+			<!-- ============================================================================================ -->
+			<!--     Category list                                                                            -->
+			<!-- ============================================================================================ -->
+			<CategoryList>
+				<CategoryItem ID="ID_UNIT_500E" TextId="TOK_NORD_CATEGORY_TU3"/>
+				<CategoryItem ID="ID_UNIT_200E" TextId="TOK_NORD_CATEGORY_TU4"/>
+				<CategoryItem ID="ID_UNIT_NORDAC_PRO" TextId="TOK_NORD_CATEGORY_NORDACPRO"/>
+				<CategoryItem ID="ID_UNIT_NORDAC_ON" TextId="TOK_NORD_CATEGORY_NORDACON"/>
+			</CategoryList>
+			<!-- ============================================================================================ -->
+			<!--     Text list                                                                                -->
+			<!-- ============================================================================================ -->
+			<ExternalTextList>
+				<!--===================================-->
+				<!--    primary language: english      -->
+				<!--===================================-->
+				<PrimaryLanguage>
+					<!--english-->
+					<Text TextId="TOK_PN_IO_DEVICE_DESCRIPTION" Value="SK TU3-PNT / SK CU4-PNT / SK TU4-PNT / SK TU4-PNS / SK 550P / SK 300P / SK CU4-ETH /  SK TU4-ETH PROFINET IO interface for drives"/>
+					<Text TextId="TOK_SUBSLOT_INTERFACE" Value="PROFINET Interface"/>
+					<Text TextId="TOK_DAP_SUB_INFO_TU3" Value="Unit SK TU3-PNT"/>
+					<Text TextId="TOK_DAP_SUB_INFO_TU4" Value="Unit SK TU4-PNT"/>
+					<Text TextId="TOK_DAP_SUB_INFO_CU4" Value="Unit SK CU4-PNT"/>
+					<Text TextId="TOK_DAP_SUB_INFO_CU4ETH" Value="Unit SK CU4-ETH"/>
+					<Text TextId="TOK_DAP_SUB_INFO_CU4ETH_IO" Value="Unit SK CU4-ETH-IO)"/>
+					<Text TextId="TOK_DAP_SUB_INFO_TU4ETH" Value="Unit SK TU4-ETH"/>
+					<Text TextId="TOK_DAP_SUB_INFO_TU4SAF" Value="Unit SK TU4-PNS"/>
+					<Text TextId="TOK_DAP_SUB_INFO_TU4ETHSAF" Value="Unit SK TU4-ETH-PNS"/>
+					<Text TextId="TOK_DAP_SUB_INFO_550P_PNT" Value="PROFINET interface of the SK550P inverter"/>
+					<Text TextId="TOK_DAP_SUB_INFO_300P_PNT" Value="PROFINET interface of the SK300P inverter"/>
+					<Text TextId="TOK_SUBSLOT_PORT1" Value="X1 P1"/>
+					<Text TextId="TOK_SUBSLOT_PORT2" Value="X1 P2"/>
+					<Text TextId="TOK_PORT_1" Value="Port 1 - RJ45 Connector 1"/>
+					<Text TextId="TOK_PORT_2" Value="Port 2 - RJ45 Connector 2"/>
+					<Text TextId="TOK_EMPTY" Value="Empty"/>
+					<Text TextId="TOK_EMPTY_INFO" Value="not used"/>
+					<Text TextId="TOK_DIGIO" Value="Dig-IO (1 word)"/>
+					<Text TextId="TOK_DIGIN" Value="Dig-IN (1 word)"/>
+					<Text TextId="TOK_TU_SUB" Value="digital inputs/digital outputs of the SK TUx-PNT /  SK TUx-ETH(1 word)"/>
+					<Text TextId="TOK_TU_IN_SUB" Value="digital inputs of the SK CU4-PNT / SK CU4-ETH (1 word)"/>
+					<Text TextId="TOK_TU_INFO" Value="inputs/outputs"/>
+					<Text TextId="TOK_TU_IN_INFO" Value="inputs"/>
+					<Text TextId="TOK_TU_SUB_INFO" Value="Dig. IO"/>
+					<Text TextId="TOK_PPO3" Value="PPO 3 (2 words)"/>
+					<Text TextId="TOK_PPO3_INFO" Value="Cyclic Data Transfer PPO 3 (Control word /Status word and one Setpoint Value/Actual Value)"/>
+					<Text TextId="TOK_PPO3_SUB_INFO" Value="PPO 3: (Input: Control Word + Setpoint Value 1 / output: Status Word + Actual Value 1)"/>
+					<Text TextId="TOK_PPO4" Value="PPO 4 (4 words)"/>
+					<Text TextId="TOK_PPO4_INFO" Value="Cyclic Data Transfer PPO 4 (Control word /Status word and 1..3 Setpoint Value/Actual Value)"/>
+					<Text TextId="TOK_PPO4_SUB_INFO" Value="PPO 4: (Input: Control Word + Setpoint Value 1..3 / output: Status Word + Actual Value 1..3)"/>
+					<Text TextId="TOK_PPO6" Value="PPO 6 (6 words)"/>
+					<Text TextId="TOK_PPO6_INFO" Value="Cyclic Data Transfer PPO 6 (Control word /Status word and 1..5 Setpoint Value/Actual Value)"/>
+					<Text TextId="TOK_PPO6_SUB_INFO" Value="PPO 6: (Input: Control Word + Setpoint Value 1..5 / output: Status Word + Actual Value 1..5)"/>
+					<Text TextId="TOK_PPO1" Value="PPO 1 (6 words)"/>
+					<Text TextId="TOK_PPO1_INFO" Value="Cyclic and acyclic Data Transfer PPO 1 (Record and Control word /Status word and 1 Setpoint Value/Actual Value)"/>
+					<Text TextId="TOK_PPO1_SUB_INFO" Value="PPO 1: (Input: Record Request + Control Word + Setpoint Value 1 / output: Record Answer + Status Word + Actual Value 1)"/>
+					<Text TextId="TOK_PPO2" Value="PPO 2 (8 words)"/>
+					<Text TextId="TOK_PPO2_INFO" Value="Cyclic and acyclic Data Transfer PPO 2 (Record and Control word /Status word and 1..3 Setpoint Value/Actual Value)"/>
+					<Text TextId="TOK_PPO2_SUB_INFO" Value="PPO 2: (Input: Record Request + Control Word + Setpoint Value 1..3 / output: Record Answer + Status Word + Actual Value 1..3)"/>
+					<Text TextId="TOK_PNSAFE" Value="PROFsafe (4 Bytes)"/>
+					<Text TextId="TOK_PNSAFE_INFO" Value="Cyclic PROFIsafe Data (4 Bytes)"/>
+					<Text TextId="TOK_PNSAFE_SUB_INFO" Value="Input: 4 Bytes / Output: 4 Bytes"/>
+					<Text TextId="TOK_PNSAFE_STATE1" Value="PROFIsafe State Byte 1"/>
+					<Text TextId="TOK_PNSAFE_STATE2" Value="PROFIsafe State Byte 2"/>
+					<Text TextId="TOK_PNSAFE_STATE3" Value="PROFIsafe State Byte 3"/>
+					<Text TextId="TOK_PNSAFE_STATE4" Value="PROFIsafe State Byte 4"/>
+					<Text TextId="TOK_PNSAFE_CTRL1" Value="PROFIsafe Control Byte 1"/>
+					<Text TextId="TOK_PNSAFE_CTRL2" Value="PROFIsafe Control Byte 2"/>
+					<Text TextId="TOK_PNSAFE_CTRL3" Value="PROFIsafe Control Byte 3"/>
+					<Text TextId="TOK_PNSAFE_CTRL4" Value="PROFIsafe Control Byte 4"/>
+					<Text TextId="TOK_PNSAFE_IN_SAFETY" Value="PROFIsafe Telegram (STATE + CRC)"/>
+					<Text TextId="TOK_PNSAFE_OUT_SAFETY" Value="PROFIsafe Telegram (CTRL + CRC)"/>
+					<Text TextId="TOK_STW" Value="Control Word"/>
+					<Text TextId="TOK_SW1" Value="Setpoint Value 1"/>
+					<Text TextId="TOK_SW2" Value="Setpoint Value 2"/>
+					<Text TextId="TOK_SW3" Value="Setpoint Value 3"/>
+					<Text TextId="TOK_SW4" Value="Setpoint Value 4"/>
+					<Text TextId="TOK_SW5" Value="Setpoint Value 5"/>
+					<Text TextId="TOK_ZSW" Value="Status Word"/>
+					<Text TextId="TOK_IW1" Value="Actual Value 1"/>
+					<Text TextId="TOK_IW2" Value="Actual Value 2"/>
+					<Text TextId="TOK_IW3" Value="Actual Value 3"/>
+					<Text TextId="TOK_IW4" Value="Actual Value 4"/>
+					<Text TextId="TOK_IW5" Value="Actual Value 5"/>
+					<Text TextId="TOK_ORDER_PKE" Value="Parameter Label (order)"/>
+					<Text TextId="TOK_ORDER_INDEX" Value="Parameter Index(order)"/>
+					<Text TextId="TOK_ORDER_VALUE_HI" Value="Parameter Value (Hi)(order)"/>
+					<Text TextId="TOK_ORDER_VALUE_LO" Value="Parameter Value (Lo)(order)"/>
+					<Text TextId="TOK_ANSWER_PKE" Value="Parameter Label (answer)"/>
+					<Text TextId="TOK_ANSWER_INDEX" Value="Parameter Index (answer)"/>
+					<Text TextId="TOK_ANSWER_VALUE_HI" Value="Parameter Value (Hi) (answer)"/>
+					<Text TextId="TOK_ANSWER_VALUE_LO" Value="Parameter Value (Lo) (answer)"/>
+					<Text TextId="TOK_INPUT" Value="Digital Inputs"/>
+					<Text TextId="TOK_OUTPUT" Value="Digital Outputs"/>
+					<Text TextId="TOK_DAP_NAME_TU3" Value="SK TU3-PNT"/>
+					<Text TextId="TOK_DAP_NAME_TU4" Value="SK TU4-PNT"/>
+					<Text TextId="TOK_DAP_NAME_CU4" Value="SK CU4-PNT"/>
+					<Text TextId="TOK_DAP_NAME_CU4ETH" Value="SK CU4-ETH"/>
+					<Text TextId="TOK_DAP_NAME_CU4ETH_IO" Value="SK CU4-ETH-IO"/>
+					<Text TextId="TOK_DAP_NAME_TU4ETH" Value="SK TU4-ETH"/>
+					<Text TextId="TOK_DAP_NAME_TU4SAF" Value="SK TU4-PNS"/>
+					<Text TextId="TOK_DAP_NAME_TU4ETHSAF" Value="SK TU4-ETH-PNS"/>
+					<Text TextId="TOK_DAP_NAME_550P_PNT" Value="SK 550P-PNT"/>
+					<Text TextId="TOK_DAP_NAME_300P_PNT" Value="SK 300P-PNT"/>
+					<Text TextId="TOK_DAP_DESCRIPTION_TU3" Value="PROFINET Technology unit of the SK5xxE series"/>
+					<Text TextId="TOK_DAP_DESCRIPTION_TU4" Value="PROFINET Technology unit of the SK2xxE series"/>
+					<Text TextId="TOK_DAP_DESCRIPTION_CU4" Value="PROFINET Custom unit of the SK2xxE series"/>
+					<Text TextId="TOK_DAP_DESCRIPTION_TU4SAF" Value="PROFINET SAFE Technology unit of the SK2xxE series"/>
+					<Text TextId="TOK_DAP_DESCRIPTION_500P_PNT" Value="PROFINET interface of the SK 550P"/>
+					<Text TextId="TOK_DAP_DESCRIPTION_300P_PNT" Value="PROFINET interface of the SK 300P"/>
+					<Text TextId="TOK_DAP_INTERFACE" Value="PN-IO"/>
+					<Text TextId="TOK_NORD_CATEGORY_TU3" Value="SK 500E series"/>
+					<Text TextId="TOK_NORD_CATEGORY_TU4" Value="SK 200E series"/>
+					<Text TextId="TOK_NORD_CATEGORY_NORDACPRO" Value="NORDAC PRO"/>
+					<Text TextId="TOK_NORD_CATEGORY_NORDACON" Value="NORDAC ON"/>
+					<!--errortype name-->
+					<Text TextId="TOK_Name_ErrorType64" Value=" 64: Mismatch of address (F_Dest_Add) "/>
+					<Text TextId="TOK_Name_ErrorType65" Value=" 65: Invalid Safety dest address (F_Dest_Add) "/>
+					<Text TextId="TOK_Name_ErrorType66" Value=" 66: Wrong source address (F_Source_Add) "/>
+					<Text TextId="TOK_Name_ErrorType67" Value=" 67: Watchdog time is 0 ms (F_WD_Time/F_WD_Time_2) "/>
+					<Text TextId="TOK_Name_ErrorType68" Value=" 68: F_SIL exceeds device SIL "/>
+					<Text TextId="TOK_Name_ErrorType69" Value=" 69: Wrong F_CRC_Length "/>
+					<Text TextId="TOK_Name_ErrorType70" Value=" 70: Version of F-Parameter set is incorrect "/>
+					<Text TextId="TOK_Name_ErrorType71" Value=" 71: Error in F-Parameter block (CRC1 error) "/>
+					<Text TextId="TOK_Name_ErrorType75" Value=" 75: Inconsistent iParameters (iParCRC error) "/>
+					<Text TextId="TOK_Name_ErrorType72" Value=" 72: Specific device diagnosis "/>
+					<Text TextId="TOK_Name_ErrorType266" Value=" 1.0: Inverter overtemp. "/>
+					<Text TextId="TOK_Name_ErrorType267" Value=" 1.1: Intern Inverter Temp "/>
+					<Text TextId="TOK_Name_ErrorType276" Value=" 2.0: Motor overtemp.PTC "/>
+					<Text TextId="TOK_Name_ErrorType277" Value=" 2.1: Motor overtemp.I²t "/>
+					<Text TextId="TOK_Name_ErrorType278" Value=" 2.2: Ext Resistor Temp "/>
+					<Text TextId="TOK_Name_ErrorType286" Value=" 3.0: Overcurrent I²t-Lim. "/>
+					<Text TextId="TOK_Name_ErrorType287" Value=" 3.1: Overcurrent Chopper "/>
+					<Text TextId="TOK_Name_ErrorType288" Value=" 3.2: Overcurrent IGBT "/>
+					<Text TextId="TOK_Name_ErrorType289" Value=" 3.3: overcurrent IGBTfast "/>
+					<Text TextId="TOK_Name_ErrorType296" Value=" 4.0: Module overcurrent "/>
+					<Text TextId="TOK_Name_ErrorType297" Value=" 4.1: Overcurrent measurem "/>
+					<Text TextId="TOK_Name_ErrorType301" Value=" 4.5: Overcurr.brake rect. "/>
+					<Text TextId="TOK_Name_ErrorType306" Value=" 5.0: Overvoltage Ud "/>
+					<Text TextId="TOK_Name_ErrorType307" Value=" 5.1: Mains overvoltage "/>
+					<Text TextId="TOK_Name_ErrorType316" Value=" 6.0: Charging error "/>
+					<Text TextId="TOK_Name_ErrorType317" Value=" 6.1: Mains low voltage "/>
+					<Text TextId="TOK_Name_ErrorType326" Value=" 7.0: Mains Phase Failure "/>
+					<Text TextId="TOK_Name_ErrorType336" Value=" 8.0: Parameter lost "/>
+					<Text TextId="TOK_Name_ErrorType337" Value=" 8.1: Inverter ID error "/>
+					<Text TextId="TOK_Name_ErrorType338" Value=" 8.2: Extern. EEPROM error "/>
+					<Text TextId="TOK_Name_ErrorType339" Value=" 8.3: EEPROM KSE error "/>
+					<Text TextId="TOK_Name_ErrorType340" Value=" 8.4: EEPROM intern. error "/>
+					<Text TextId="TOK_Name_ErrorType341" Value=" 8.5: No EEPROM detect "/>
+					<Text TextId="TOK_Name_ErrorType342" Value=" 8.6: EEPROM copy is used "/>
+					<Text TextId="TOK_Name_ErrorType343" Value=" 8.7: EEPROM copy differs "/>
+					<Text TextId="TOK_Name_ErrorType344" Value=" 8.8: EEPROM is blank "/>
+					<Text TextId="TOK_Name_ErrorType345" Value=" 8.9: EEP.Ctrlbox to small "/>
+					<Text TextId="TOK_Name_ErrorType356" Value=" 10.0: Bus time-out "/>
+					<Text TextId="TOK_Name_ErrorType357" Value=" 10.1: System-error option "/>
+					<Text TextId="TOK_Name_ErrorType358" Value=" 10.2: Bus time-out option "/>
+					<Text TextId="TOK_Name_ErrorType359" Value=" 10.3: System-error option "/>
+					<Text TextId="TOK_Name_ErrorType360" Value=" 10.4: Init-error option "/>
+					<Text TextId="TOK_Name_ErrorType361" Value=" 10.5: System-error option "/>
+					<Text TextId="TOK_Name_ErrorType362" Value=" 10.6: System-error option "/>
+					<Text TextId="TOK_Name_ErrorType363" Value=" 10.7: System-error option "/>
+					<Text TextId="TOK_Name_ErrorType364" Value=" 10.8: Error option "/>
+					<Text TextId="TOK_Name_ErrorType365" Value=" 10.9: Missing Option /P120 "/>
+					<Text TextId="TOK_Name_ErrorType366" Value=" 11.0: Control terminals "/>
+					<Text TextId="TOK_Name_ErrorType376" Value=" 12.0: External Watchdog "/>
+					<Text TextId="TOK_Name_ErrorType377" Value=" 12.1: Limit moto./Customer "/>
+					<Text TextId="TOK_Name_ErrorType378" Value=" 12.2: Limit gen. "/>
+					<Text TextId="TOK_Name_ErrorType379" Value=" 12.3: Torque Limit "/>
+					<Text TextId="TOK_Name_ErrorType380" Value=" 12.4: Current limit "/>
+					<Text TextId="TOK_Name_ErrorType381" Value=" 12.5: Load monitor "/>
+					<Text TextId="TOK_Name_ErrorType384" Value=" 12.8: AI minimum "/>
+					<Text TextId="TOK_Name_ErrorType385" Value=" 12.9: AI maximum "/>
+					<Text TextId="TOK_Name_ErrorType386" Value=" 13.0: Encoder error "/>
+					<Text TextId="TOK_Name_ErrorType387" Value=" 13.1: speed slip error "/>
+					<Text TextId="TOK_Name_ErrorType388" Value=" 13.2: Disconnect. control "/>
+					<Text TextId="TOK_Name_ErrorType391" Value=" 13.5: Fly.saw acceleration "/>
+					<Text TextId="TOK_Name_ErrorType392" Value=" 13.6: Fly.saw wrong value "/>
+					<Text TextId="TOK_Name_ErrorType396" Value=" 14.0: Slavecheck "/>
+					<Text TextId="TOK_Name_ErrorType397" Value=" 14.1: Hostcheck "/>
+					<Text TextId="TOK_Name_ErrorType398" Value=" 14.2: Reference pnt. error "/>
+					<Text TextId="TOK_Name_ErrorType399" Value=" 14.3: Voltage sup.bit abs "/>
+					<Text TextId="TOK_Name_ErrorType400" Value=" 14.4: Abs.encoder error "/>
+					<Text TextId="TOK_Name_ErrorType401" Value=" 14.5: Pos diff. Speed "/>
+					<Text TextId="TOK_Name_ErrorType402" Value=" 14.6: Diff.betw.Abs. Inc. "/>
+					<Text TextId="TOK_Name_ErrorType403" Value=" 14.7: Max pos overshoot "/>
+					<Text TextId="TOK_Name_ErrorType404" Value=" 14.8: Min pos undershoot "/>
+					<Text TextId="TOK_Name_ErrorType406" Value=" 15.0: Wrong s.ware version "/>
+					<Text TextId="TOK_Name_ErrorType407" Value=" 15.1: Watchdog "/>
+					<Text TextId="TOK_Name_ErrorType408" Value=" 15.2: Stack overflow "/>
+					<Text TextId="TOK_Name_ErrorType409" Value=" 15.3: Stack underflow "/>
+					<Text TextId="TOK_Name_ErrorType410" Value=" 15.4: Undefined opcode "/>
+					<Text TextId="TOK_Name_ErrorType411" Value=" 15.5: Protected instruct. "/>
+					<Text TextId="TOK_Name_ErrorType412" Value=" 15.6: Illegal word access "/>
+					<Text TextId="TOK_Name_ErrorType413" Value=" 15.7: Illegal inst. access "/>
+					<Text TextId="TOK_Name_ErrorType414" Value=" 15.8: Prog. memory error "/>
+					<Text TextId="TOK_Name_ErrorType416" Value=" 16.0: Motor Phase Failure "/>
+					<Text TextId="TOK_Name_ErrorType417" Value=" 16.1: Magn. Current Watch "/>
+					<Text TextId="TOK_Name_ErrorType426" Value=" 17.0: Change assembly grp. "/>
+					<Text TextId="TOK_Name_ErrorType436" Value=" 18.0: safety circuit "/>
+					<Text TextId="TOK_Name_ErrorType437" Value=" 18.1: Two phase relay "/>
+					<Text TextId="TOK_Name_ErrorType438" Value=" 18.2: STO input "/>
+					<Text TextId="TOK_Name_ErrorType439" Value=" 18.3: Changeover relay "/>
+					<Text TextId="TOK_Name_ErrorType440" Value=" 18.4: Bypass relay "/>
+					<Text TextId="TOK_Name_ErrorType446" Value=" 19.0: parameter ident. "/>
+					<Text TextId="TOK_Name_ErrorType447" Value=" 19.1: Star/delta incorrect "/>
+					<Text TextId="TOK_Name_ErrorType456" Value=" 20.0: Externes RAM "/>
+					<Text TextId="TOK_Name_ErrorType457" Value=" 20.1: Watchdog "/>
+					<Text TextId="TOK_Name_ErrorType458" Value=" 20.2: Stack overflow "/>
+					<Text TextId="TOK_Name_ErrorType459" Value=" 20.3: Stack underflow "/>
+					<Text TextId="TOK_Name_ErrorType460" Value=" 20.4: Undefined opcode "/>
+					<Text TextId="TOK_Name_ErrorType461" Value=" 20.5: Protected instruct. "/>
+					<Text TextId="TOK_Name_ErrorType462" Value=" 20.6: Illegal word access "/>
+					<Text TextId="TOK_Name_ErrorType463" Value=" 20.7: Illegal inst. access "/>
+					<Text TextId="TOK_Name_ErrorType464" Value=" 20.8: Prog. memory error "/>
+					<Text TextId="TOK_Name_ErrorType465" Value=" 20.9: Dual-Ported RAM "/>
+					<Text TextId="TOK_Name_ErrorType466" Value=" 21.0: NMI error "/>
+					<Text TextId="TOK_Name_ErrorType467" Value=" 21.1: PLL error "/>
+					<Text TextId="TOK_Name_ErrorType468" Value=" 21.2: ADU error "/>
+					<Text TextId="TOK_Name_ErrorType469" Value=" 21.3: PMI error "/>
+					<Text TextId="TOK_Name_ErrorType470" Value=" 21.4: Userstack Overflow "/>
+					<Text TextId="TOK_Name_ErrorType476" Value=" 22.0: No PLC program "/>
+					<Text TextId="TOK_Name_ErrorType477" Value=" 22.1: Checksum PLC progr. "/>
+					<Text TextId="TOK_Name_ErrorType478" Value=" 22.2: PLC Jump illegal "/>
+					<Text TextId="TOK_Name_ErrorType479" Value=" 22.3: PLC stack fault "/>
+					<Text TextId="TOK_Name_ErrorType480" Value=" 22.4: PLC max cycl.reached "/>
+					<Text TextId="TOK_Name_ErrorType481" Value=" 22.5: PLC unknown comm. "/>
+					<Text TextId="TOK_Name_ErrorType482" Value=" 22.6: PLC write access "/>
+					<Text TextId="TOK_Name_ErrorType485" Value=" 22.9: PLC Fault "/>
+					<Text TextId="TOK_Name_ErrorType486" Value=" 23.0: PLC user fault 1 "/>
+					<Text TextId="TOK_Name_ErrorType487" Value=" 23.1: PLC user fault 2 "/>
+					<Text TextId="TOK_Name_ErrorType488" Value=" 23.2: PLC user fault 3 "/>
+					<Text TextId="TOK_Name_ErrorType489" Value=" 23.3: PLC user fault 4 "/>
+					<Text TextId="TOK_Name_ErrorType490" Value=" 23.4: PLC user fault 5 "/>
+					<Text TextId="TOK_Name_ErrorType491" Value=" 23.5: PLC user fault 6 "/>
+					<Text TextId="TOK_Name_ErrorType492" Value=" 23.6: PLC user fault 7 "/>
+					<Text TextId="TOK_Name_ErrorType493" Value=" 23.7: PLC user fault 8 "/>
+					<Text TextId="TOK_Name_ErrorType496" Value=" 24.0: PLC user fault 9 "/>
+					<Text TextId="TOK_Name_ErrorType497" Value=" 24.1: PLC user fault 10 "/>
+					<Text TextId="TOK_Name_ErrorType498" Value=" 24.2: PLC user fault 11 "/>
+					<Text TextId="TOK_Name_ErrorType499" Value=" 24.3: PLC user fault 12 "/>
+					<Text TextId="TOK_Name_ErrorType500" Value=" 24.4: PLC user fault 13 "/>
+					<Text TextId="TOK_Name_ErrorType501" Value=" 24.5: PLC user fault 14 "/>
+					<Text TextId="TOK_Name_ErrorType502" Value=" 24.6: PLC user fault 15 "/>
+					<Text TextId="TOK_Name_ErrorType503" Value=" 24.7: PLC user fault 16 "/>
+					<Text TextId="TOK_Name_ErrorType506" Value=" 25.0: Hiperf.Abs/Ink Fault "/>
+					<Text TextId="TOK_Name_ErrorType507" Value=" 25.1: Uni.Encod. communic. "/>
+					<Text TextId="TOK_Name_ErrorType508" Value=" 25.2: no adeq. Uni.encoder "/>
+					<Text TextId="TOK_Name_ErrorType509" Value=" 25.3: Uni.encoder resol. "/>
+					<Text TextId="TOK_Name_ErrorType510" Value=" 25.4: Uni.encoder fault "/>
+					<Text TextId="TOK_Name_ErrorType1156" Value=" 90.0: Error subsystem "/>
+					<Text TextId="TOK_Name_ErrorType1166" Value=" 91.0: Update error "/>
+					<Text TextId="TOK_Name_ErrorType1167" Value=" 91.1: Bad update file "/>
+					<Text TextId="TOK_Name_ErrorType1168" Value=" 91.2: Host Timeout "/>
+					<Text TextId="TOK_Name_ErrorType1169" Value=" 91.3: Update blocked "/>
+					<Text TextId="TOK_Name_ErrorType1246" Value=" 99.0: Internal fault "/>
+					<Text TextId="TOK_Name_ErrorType1256" Value=" 1000: EEPROM Error "/>
+					<Text TextId="TOK_Name_ErrorType1266" Value=" 1010: Missing24V Systembus "/>
+					<Text TextId="TOK_Name_ErrorType1276" Value=" 1020: Bus Time-Out P151 "/>
+					<Text TextId="TOK_Name_ErrorType1286" Value=" 1030: Systembus Bus Off "/>
+					<Text TextId="TOK_Name_ErrorType1296" Value=" 1040: Overtemp. option "/>
+					<Text TextId="TOK_Name_ErrorType1356" Value=" 110.0: Safety CRC fault "/>
+					<Text TextId="TOK_Name_ErrorType1357" Value=" 110.1: Safety CRC changed "/>
+					<Text TextId="TOK_Name_ErrorType1358" Value=" 110.2: Safety CRC password "/>
+					<Text TextId="TOK_Name_ErrorType2256" Value=" 200.0: bus system fault "/>
+					<Text TextId="TOK_Name_ErrorType2257" Value=" 200.1: node error "/>
+					<Text TextId="TOK_Name_ErrorType2266" Value=" 2010: Aout fault "/>
+					<Text TextId="TOK_Name_ErrorType2276" Value=" 2020: FI Not Compatible "/>
+					<Text TextId="TOK_Name_ErrorType2456" Value=" 220.0: PLC timeout "/>
+					<Text TextId="TOK_Name_ErrorType2457" Value=" 220.1: Inverter timeout "/>
+					<Text TextId="TOK_Name_ErrorType2458" Value=" 220.2: Network fault "/>
+					<Text TextId="TOK_Name_ErrorType2459" Value=" 220.3: temperature fault "/>
+					<Text TextId="TOK_Name_ErrorType2460" Value=" 220.4: Inverter lost "/>
+					<Text TextId="TOK_Name_ErrorType3246" Value=" 299.0: System fault "/>
+					<Text TextId="TOK_Name_ErrorType5756" Value=" 5500: No Link "/>
+					<Text TextId="TOK_Name_ErrorType5757" Value=" 5501: IO hardware error "/>
+					<Text TextId="TOK_Name_ErrorType5758" Value=" 5502: CAN hardware error "/>
+					<Text TextId="TOK_Name_ErrorType5759" Value=" 5503: SAF hardware error "/>
+					<Text TextId="TOK_Name_ErrorType5760" Value=" 5504: FI lost connection "/>
+					<Text TextId="TOK_Name_ErrorType5761" Value=" 5505: AR lost connection "/>
+					<Text TextId="TOK_Name_ErrorType5896" Value=" 5640: MAC adress fault "/>
+					<Text TextId="TOK_Name_ExtErrorType5503" Value=" 5503: SAFE hardware error "/>
+					<Text TextId="TOK_Name_ExtErrorType5711" Value=" 5711: Client address "/>
+					<Text TextId="TOK_Name_ExtErrorType5712" Value=" 5712: Client add. invalid "/>
+					<Text TextId="TOK_Name_ExtErrorType5713" Value=" 5713: Host add. invalid "/>
+					<Text TextId="TOK_Name_ExtErrorType5714" Value=" 5714: Watchdog time =0 "/>
+					<Text TextId="TOK_Name_ExtErrorType5715" Value=" 5715: Wrong F-SIL "/>
+					<Text TextId="TOK_Name_ExtErrorType5716" Value=" 5716: Wrong F-Par version "/>
+					<Text TextId="TOK_Name_ExtErrorType5717" Value=" 5717: F-Parameter CRC "/>
+					<Text TextId="TOK_Name_ExtErrorType5718" Value=" 5718: General F-Par fault "/>
+					<Text TextId="TOK_Name_ExtErrorType5719" Value=" 5719: I-Para CRC PLC "/>
+					<Text TextId="TOK_Name_ExtErrorType5721" Value=" 5721: CRC length mismatch "/>
+					<Text TextId="TOK_Name_ExtErrorType5722" Value=" 5722: I-Parameter changed "/>
+					<Text TextId="TOK_Name_ExtErrorType5723" Value=" 5723: I-Para CRC extern "/>
+					<Text TextId="TOK_Name_ExtErrorType5724" Value=" 5724: I-Para CRC intern "/>
+					<Text TextId="TOK_Name_ExtErrorType5725" Value=" 5725: F-Param telegram =0 "/>
+					<Text TextId="TOK_Name_ExtErrorType5726" Value=" 5726: DIP read error "/>
+					<Text TextId="TOK_Name_ExtErrorType5731" Value=" 5731: Discrepancy time DIN "/>
+					<Text TextId="TOK_Name_ExtErrorType5732" Value=" 5732: Diagnosis OSSD 1 "/>
+					<Text TextId="TOK_Name_ExtErrorType5733" Value=" 5733: Diagnosis OSSD 2 "/>
+					<Text TextId="TOK_Name_ExtErrorType5734" Value=" 5734: Diagnosis OSSD 3 "/>
+					<Text TextId="TOK_Name_ExtErrorType5735" Value=" 5735: Diagnosis CLK 1 "/>
+					<Text TextId="TOK_Name_ExtErrorType5736" Value=" 5736: Diagnosis CLK 2 "/>
+					<Text TextId="TOK_Name_ExtErrorType5737" Value=" 5737: Diagnosis OSSD at In1 "/>
+					<Text TextId="TOK_Name_ExtErrorType5738" Value=" 5738: Diagnosis OSSD at In2 "/>
+					<Text TextId="TOK_Name_ExtErrorType5741" Value=" 5741: IPAR ch. act. OSSD1 "/>
+					<Text TextId="TOK_Name_ExtErrorType5742" Value=" 5742: IPAR ch. act. OSSD2 "/>
+					<Text TextId="TOK_Name_ExtErrorType5743" Value=" 5743: IPAR ch. act. OSSD3 "/>
+					<Text TextId="TOK_Name_ExtErrorType5744" Value=" 5744: IPAR ch. act. CLK1 "/>
+					<Text TextId="TOK_Name_ExtErrorType5745" Value=" 5745: IPAR ch. act. CLK2 "/>
+					<Text TextId="TOK_Name_ExtErrorType5746" Value=" 5746: IPAR ch. act. In1 "/>
+					<Text TextId="TOK_Name_ExtErrorType5747" Value=" 5747: IPAR ch. act. In2 "/>
+					<Text TextId="TOK_Name_ExtErrorType5748" Value=" 5748: IPAR ch. act. I-Par "/>
+					<Text TextId="TOK_Name_ExtErrorType5749" Value=" 5749: IPAR pulse len. OSSD "/>
+					<Text TextId="TOK_Name_ExtErrorType5751" Value=" 5751: IPAR filter time DIN "/>
+					<Text TextId="TOK_Name_ExtErrorType5752" Value=" 5752: IPAR single/dual ch. "/>
+					<Text TextId="TOK_Name_ExtErrorType5753" Value=" 5753: IPAR discrepanc.time "/>
+					<Text TextId="TOK_Name_ExtErrorType5754" Value=" 5754: IPAR passivation "/>
+					<Text TextId="TOK_Name_ExtErrorType5755" Value=" 5755: IPAR enc. parameter "/>
+					<Text TextId="TOK_Name_ExtErrorType5756" Value=" 5756: IPAR SLS activation "/>
+					<Text TextId="TOK_Name_ExtErrorType5757" Value=" 5757: IPAR SSR activation "/>
+					<Text TextId="TOK_Name_ExtErrorType5758" Value=" 5758: IPAR SDI-P activ. "/>
+					<Text TextId="TOK_Name_ExtErrorType5759" Value=" 5759: IPAR SDI-N activ. "/>
+					<Text TextId="TOK_Name_ExtErrorType5761" Value=" 5761: IPAR SOS activation "/>
+					<Text TextId="TOK_Name_ExtErrorType5762" Value=" 5762: IPAR activation time "/>
+					<Text TextId="TOK_Name_ExtErrorType5763" Value=" 5763: IPAR reaction time "/>
+					<Text TextId="TOK_Name_ExtErrorType5764" Value=" 5764: IPAR speed limit "/>
+					<Text TextId="TOK_Name_ExtErrorType5765" Value=" 5765: IPAR pos. difference "/>
+					<Text TextId="TOK_Name_ExtErrorType5766" Value=" 5766: IPAR enc. lim. freq. "/>
+					<Text TextId="TOK_Name_ExtErrorType5771" Value=" 5771: PNS temperature "/>
+					<Text TextId="TOK_Name_ExtErrorType5772" Value=" 5772: PNS enc. Fault "/>
+					<Text TextId="TOK_Name_ExtErrorType5773" Value=" 5773: PNS sync fault "/>
+					<Text TextId="TOK_Name_ExtErrorType5774" Value=" 5774: PNS voltage 24V  "/>
+					<Text TextId="TOK_Name_ExtErrorType5775" Value=" 5775: PNS voltage 8V "/>
+					<Text TextId="TOK_Name_ExtErrorType5776" Value=" 5776: PNS motion difference "/>
+					<Text TextId="TOK_Name_ExtErrorType5781" Value=" 5781: SLS fault "/>
+					<Text TextId="TOK_Name_ExtErrorType5782" Value=" 5782: SSR fault "/>
+					<Text TextId="TOK_Name_ExtErrorType5783" Value=" 5783: SDI-P fault "/>
+					<Text TextId="TOK_Name_ExtErrorType5784" Value=" 5784: SDI-N fault "/>
+					<Text TextId="TOK_Name_ExtErrorType5785" Value=" 5785: SOS fault "/>
+					<Text TextId="TOK_Name_ExtErrorType5791" Value=" 5791: PNS system error "/>
+					<Text TextId="TOK_Name_ExtErrorType5792" Value=" 5792: PNS max. system err. "/>
+					<Text TextId="TOK_Name_ExtErrorType5797" Value=" 5797: PNS Flash access "/>
+					<Text TextId="TOK_Name_ExtErrorType5799" Value=" 5799: PNS Profinet "/>
+				</PrimaryLanguage>
+				<!-- ==================== -->
+				<!--      german          -->
+				<!-- ==================== -->
+				<Language xml:lang="de">
+					<Text TextId="TOK_PN_IO_DEVICE_DESCRIPTION" Value="SK TU3-PNT / SK CU4-PNT / SK TU4-PNT / SK TU4-PNS / SK 550P / SK 300P / SK CU4-ETH PROFINET IO Schnittstelle für Antriebe"/>
+					<Text TextId="TOK_SUBSLOT_INTERFACE" Value="PROFINET Schnittstelle"/>
+					<Text TextId="TOK_DAP_SUB_INFO_TU3" Value="Technologiebaugruppe SK TU3-PNT"/>
+					<Text TextId="TOK_DAP_SUB_INFO_TU4" Value="Technologiebaugruppe SK TU4-PNT"/>
+					<Text TextId="TOK_DAP_SUB_INFO_CU4" Value="Kundenschnittstelle SK CU4-PNT"/>
+					<Text TextId="TOK_DAP_SUB_INFO_CU4ETH" Value="Kundenschnittstelle SK CU4-ETH"/>
+					<Text TextId="TOK_DAP_SUB_INFO_CU4ETH_IO" Value="Kundenschnittstelle SK CU4-ETH-IO"/>
+					<Text TextId="TOK_DAP_SUB_INFO_TU4ETH" Value="Kundenschnittstelle SK TU4-ETH"/>
+					<Text TextId="TOK_DAP_SUB_INFO_TU4SAF" Value="Technologiebaugruppe Safe SK TU4-PNS"/>
+					<Text TextId="TOK_DAP_SUB_INFO_TU4ETHSAF" Value="Technologiebaugruppe SK TU4-ETH-PNS"/>
+					<Text TextId="TOK_DAP_SUB_INFO_550P_PNT" Value="PROFINET Schnittstelle des SK 550P Frequenzumrichters"/>
+					<Text TextId="TOK_DAP_SUB_INFO_300P_PNT" Value="PROFINET Schnittstelle des SK 300P Frequenzumrichters"/>
+					<Text TextId="TOK_SUBSLOT_PORT1" Value="X1 P1"/>
+					<Text TextId="TOK_SUBSLOT_PORT2" Value="X1 P2"/>
+					<Text TextId="TOK_PORT_1" Value="Port 1 - RJ45 Stecker 1"/>
+					<Text TextId="TOK_PORT_2" Value="Port 2 - RJ45 Stecker 2"/>
+					<Text TextId="TOK_EMPTY" Value="Leerer Steckplatz"/>
+					<Text TextId="TOK_EMPTY_INFO" Value="Slot nicht benutzt"/>
+					<Text TextId="TOK_DIGIO" Value="Dig-IO (1Wort)"/>
+					<Text TextId="TOK_DIGIN" Value="Dig-IN (1 word)"/>
+					<Text TextId="TOK_TU_SUB" Value="Digitaleingänge/Digitalausgänge der SK TUx-PNT / SK CU4-ETH (1Wort)"/>
+					<Text TextId="TOK_TU_IN_SUB" Value="Digitaleingänge der SK CU4-PNT (1Wort)"/>
+					<Text TextId="TOK_TU_INFO" Value="Digitaleingänge/Digitalausgänge"/>
+					<Text TextId="TOK_TU_IN_INFO" Value="Digitaleingänge"/>
+					<Text TextId="TOK_TU_SUB_INFO" Value="Dig. IO"/>
+					<Text TextId="TOK_PPO3" Value="PPO 3 (2 Wörter)"/>
+					<Text TextId="TOK_PPO3_INFO" Value="Parameter- Prozessdatenobjekt PPO 3 (Steuerwort/Zustandwort und einen Sollwert/Istwert)"/>
+					<Text TextId="TOK_PPO3_SUB_INFO" Value="PPO 3: (Eingang: Steuerwort+Sollwert1 / Ausgang: Zustandswort+Istwert1)"/>
+					<Text TextId="TOK_PPO4" Value="PPO 4 (4 Wörter)"/>
+					<Text TextId="TOK_PPO4_INFO" Value="Parameter- Prozessdatenobjekt PPO 4 (Steuerwort/Zustandwort und 1...3 Sollwerte/1..3 Istwerte)"/>
+					<Text TextId="TOK_PPO4_SUB_INFO" Value="PPO 4: (Eingang: Steuerwort+Sollwert 1..3 / Ausgang: Zustandswort+Istwert 1..3)"/>
+					<Text TextId="TOK_PPO6" Value="PPO 6 (6 Wörter)"/>
+					<Text TextId="TOK_PPO6_INFO" Value="Parameter- Prozessdatenobjekt PPO 6 (Steuerwort/Zustandwort und 1...5 Sollwerte/1..5 Istwerte)"/>
+					<Text TextId="TOK_PPO6_SUB_INFO" Value="PPO 6: (Eingang: Steuerwort+Sollwert 1..5 / Ausgang: Zustandswort+Istwert 1..5)"/>
+					<Text TextId="TOK_PPO1" Value="PPO 1 (6 Wörter)"/>
+					<Text TextId="TOK_PPO1_INFO" Value="Parameter- Prozessdatenobjekt PPO 1 (Parameterobjekt und Steuerwort/Zustandwort und 1 Sollwert/1 Istwert)"/>
+					<Text TextId="TOK_PPO1_SUB_INFO" Value="PPO 1: (Eingang: Parameterauftrag+Steuerwort+Sollwert 1 / Ausgang: Parameterantwort+Zustandswort+Istwert 1)"/>
+					<Text TextId="TOK_PPO2" Value="PPO 2 (8 Wörter)"/>
+					<Text TextId="TOK_PPO2_INFO" Value="Parameter- Prozessdatenobjekt PPO 2 (Parameterobjekt und Steuerwort/Zustandwort und 1..3 Sollwerte/1..3 Istwerte)"/>
+					<Text TextId="TOK_PPO2_SUB_INFO" Value="PPO 2: (Eingang: Parameterauftrag+Steuerwort+Sollwerte 1..3 / Ausgang: Parameterantwort+Zustandswort+Istwert 1..3)"/>
+					<Text TextId="TOK_PNSAFE" Value="PROFsafe (4 Bytes)"/>
+					<Text TextId="TOK_PNSAFE_INFO" Value="Zyklische PROFIsafe Daten (4 Bytes)"/>
+					<Text TextId="TOK_PNSAFE_SUB_INFO" Value="Eingang: 4 Bytes / Ausgang: 4 Bytes"/>
+					<Text TextId="TOK_PNSAFE_STATE1" Value="PROFIsafe Status Byte 1"/>
+					<Text TextId="TOK_PNSAFE_STATE2" Value="PROFIsafe Status Byte 2"/>
+					<Text TextId="TOK_PNSAFE_STATE3" Value="PROFIsafe Status Byte 3"/>
+					<Text TextId="TOK_PNSAFE_STATE4" Value="PROFIsafe Status Byte 4"/>
+					<Text TextId="TOK_PNSAFE_CTRL1" Value="PROFIsafe Control Byte 1"/>
+					<Text TextId="TOK_PNSAFE_CTRL2" Value="PROFIsafe Control Byte 2"/>
+					<Text TextId="TOK_PNSAFE_CTRL3" Value="PROFIsafe Control Byte 3"/>
+					<Text TextId="TOK_PNSAFE_CTRL4" Value="PROFIsafe Control Byte 4"/>
+					<Text TextId="TOK_PNSAFE_IN_SAFETY" Value="PROFIsafe Telegramm (STATE + CRC)"/>
+					<Text TextId="TOK_PNSAFE_OUT_SAFETY" Value="PROFIsafe Telegramm (CTRL + CRC)"/>
+					<Text TextId="TOK_STW" Value="Steuerwort"/>
+					<Text TextId="TOK_SW1" Value="Sollwert 1"/>
+					<Text TextId="TOK_SW2" Value="Sollwert 2"/>
+					<Text TextId="TOK_SW3" Value="Sollwert 3"/>
+					<Text TextId="TOK_SW4" Value="Sollwert 4"/>
+					<Text TextId="TOK_SW5" Value="Sollwert 5"/>
+					<Text TextId="TOK_ZSW" Value="Zustandswort"/>
+					<Text TextId="TOK_IW1" Value="Istwert 1"/>
+					<Text TextId="TOK_IW2" Value="Istwert 2"/>
+					<Text TextId="TOK_IW3" Value="Istwert 3"/>
+					<Text TextId="TOK_IW4" Value="Istwert 4"/>
+					<Text TextId="TOK_IW5" Value="Istwert 5"/>
+					<Text TextId="TOK_ORDER_PKE" Value="Parameterkennung (Auftrag)"/>
+					<Text TextId="TOK_ORDER_INDEX" Value="Parameterindex (Auftrag)"/>
+					<Text TextId="TOK_ORDER_VALUE_HI" Value="Parameterwert (Hi)(Auftrag)"/>
+					<Text TextId="TOK_ORDER_VALUE_LO" Value="Parameterwert (Lo)(Auftrag)"/>
+					<Text TextId="TOK_ANSWER_PKE" Value="Parameterkennung (Antwort)"/>
+					<Text TextId="TOK_ANSWER_INDEX" Value="Parameterindex (Antwort)"/>
+					<Text TextId="TOK_ANSWER_VALUE_HI" Value="Parameterwert (Hi) (Antwort)"/>
+					<Text TextId="TOK_ANSWER_VALUE_LO" Value="Parameterwert (Lo) (Antwort)"/>
+					<Text TextId="TOK_INPUT" Value="Digitaleingänge"/>
+					<Text TextId="TOK_OUTPUT" Value="Digitalausgänge"/>
+					<Text TextId="TOK_DAP_NAME_TU3" Value="SK TU3-PNT"/>
+					<Text TextId="TOK_DAP_NAME_TU4" Value="SK TU4-PNT"/>
+					<Text TextId="TOK_DAP_NAME_CU4" Value="SK CU4-PNT"/>
+					<Text TextId="TOK_DAP_NAME_CU4ETH" Value="SK CU4-ETH"/>
+					<Text TextId="TOK_DAP_NAME_CU4ETH_IO" Value="SK CU4-ETH-IO"/>
+					<Text TextId="TOK_DAP_NAME_TU4ETH" Value="SK TU4-ETH"/>
+					<Text TextId="TOK_DAP_NAME_TU4SAF" Value="SK TU4-PNS"/>
+					<Text TextId="TOK_DAP_NAME_TU4ETHSAF" Value="SK TU4-ETH-PNS"/>
+					<Text TextId="TOK_DAP_NAME_550P_PNT" Value="SK 550P-PNT"/>
+					<Text TextId="TOK_DAP_NAME_300P_PNT" Value="SK 300P-PNT"/>
+					<Text TextId="TOK_DAP_DESCRIPTION_TU3" Value="PROFINET Technologiebaugruppe der SK5xxE Serie"/>
+					<Text TextId="TOK_DAP_DESCRIPTION_TU4" Value="PROFINET Technologiebaugruppe der SK2xxE Serie"/>
+					<Text TextId="TOK_DAP_DESCRIPTION_CU4" Value="PROFINET Kundenschnittstelle der SK2xxE Serie"/>
+					<Text TextId="TOK_DAP_DESCRIPTION_TU4SAF" Value="PROFINET SAFE Technologiebaugruppe der SK2xxE Serie"/>
+					<Text TextId="TOK_DAP_DESCRIPTION_500P_PNT" Value="PROFINET Schnittstelle des SK 550P Frequenzumrichters"/>
+					<Text TextId="TOK_DAP_DESCRIPTION_300P_PNT" Value="PROFINET Schnittstelle des SK 300P Frequenzumrichters"/>
+					<Text TextId="TOK_DAP_INTERFACE" Value="PN-IO"/>
+					<Text TextId="TOK_NORD_CATEGORY_TU3" Value="SK 500E Serie"/>
+					<Text TextId="TOK_NORD_CATEGORY_TU4" Value="SK 200E Serie"/>
+					<Text TextId="TOK_NORD_CATEGORY_NORDACPRO" Value="NORDAC PRO"/>
+					<Text TextId="TOK_NORD_CATEGORY_NORDACON" Value="NORDAC ON"/>
+					<!--errortype name-->
+					<Text TextId="TOK_Name_ErrorType64" Value=" 64: Falsche Zieladresse (F_Dest_Add) "/>
+					<Text TextId="TOK_Name_ErrorType65" Value=" 65: Ungültige Zieladresse (F_Dest_Add) "/>
+					<Text TextId="TOK_Name_ErrorType66" Value=" 66: Fehler Zieladresse (F_Source_Add) "/>
+					<Text TextId="TOK_Name_ErrorType67" Value=" 67: Watchdogzeit ist 0 ms (F_WD_Time/F_WD_Time_2) "/>
+					<Text TextId="TOK_Name_ErrorType68" Value=" 68: F_SIL übersteigt BG SIL Level "/>
+					<Text TextId="TOK_Name_ErrorType69" Value=" 69: Falsche F_CRC_Length "/>
+					<Text TextId="TOK_Name_ErrorType70" Value=" 70: Version F-Parameter ist falsch "/>
+					<Text TextId="TOK_Name_ErrorType71" Value=" 71: Fehler F-Parameter Block (CRC1 error) "/>
+					<Text TextId="TOK_Name_ErrorType75" Value=" 75: Inkonsistente I-Parameter (iParCRC error) "/>
+					<Text TextId="TOK_Name_ErrorType72" Value=" 72: Spezifische Gerätediagnose "/>
+					<Text TextId="TOK_Name_ErrorType266" Value=" 1.0: Übertemp. Umrichter "/>
+					<Text TextId="TOK_Name_ErrorType267" Value=" 1.1: Übertemp.FU intern "/>
+					<Text TextId="TOK_Name_ErrorType276" Value=" 2.0: Übertemp. Motor PTC "/>
+					<Text TextId="TOK_Name_ErrorType277" Value=" 2.1: Übertemp. Motor I²t "/>
+					<Text TextId="TOK_Name_ErrorType278" Value=" 2.2: Übertemp.Brems-R.ext "/>
+					<Text TextId="TOK_Name_ErrorType286" Value=" 3.0: Überstrom I²t-Grenze "/>
+					<Text TextId="TOK_Name_ErrorType287" Value=" 3.1: Überstrom ChopperU²t "/>
+					<Text TextId="TOK_Name_ErrorType288" Value=" 3.2: Überstrom IGBT "/>
+					<Text TextId="TOK_Name_ErrorType289" Value=" 3.3: Überstrom IGBT flink "/>
+					<Text TextId="TOK_Name_ErrorType296" Value=" 4.0: Überstrom Modul "/>
+					<Text TextId="TOK_Name_ErrorType297" Value=" 4.1: Überstrom Strommeß. "/>
+					<Text TextId="TOK_Name_ErrorType301" Value=" 4.5: Überstr.Bremsgleich. "/>
+					<Text TextId="TOK_Name_ErrorType306" Value=" 5.0: Überspannung UZW "/>
+					<Text TextId="TOK_Name_ErrorType307" Value=" 5.1: Überspannung Netz "/>
+					<Text TextId="TOK_Name_ErrorType316" Value=" 6.0: Aufladefehler "/>
+					<Text TextId="TOK_Name_ErrorType317" Value=" 6.1: Unterspannung Netz "/>
+					<Text TextId="TOK_Name_ErrorType326" Value=" 7.0: Phasenfehler Netz "/>
+					<Text TextId="TOK_Name_ErrorType336" Value=" 8.0: Parameterverlust "/>
+					<Text TextId="TOK_Name_ErrorType337" Value=" 8.1: Umrichtertyp falsch "/>
+					<Text TextId="TOK_Name_ErrorType338" Value=" 8.2: Kopierfehler extern "/>
+					<Text TextId="TOK_Name_ErrorType339" Value=" 8.3: EEPROM KSE Fehler "/>
+					<Text TextId="TOK_Name_ErrorType340" Value=" 8.4: EEPROM intern Fehler "/>
+					<Text TextId="TOK_Name_ErrorType341" Value=" 8.5: Kein EEPROM erkannt "/>
+					<Text TextId="TOK_Name_ErrorType342" Value=" 8.6: EEPR.Kopie verwendet "/>
+					<Text TextId="TOK_Name_ErrorType343" Value=" 8.7: EEPR.Kopie ungleich "/>
+					<Text TextId="TOK_Name_ErrorType344" Value=" 8.8: EEPROM ist leer "/>
+					<Text TextId="TOK_Name_ErrorType345" Value=" 8.9: EEP.Ctrlbox zu klein "/>
+					<Text TextId="TOK_Name_ErrorType356" Value=" 10.0: Bus Time-Out "/>
+					<Text TextId="TOK_Name_ErrorType357" Value=" 10.1: Systemfehler Option "/>
+					<Text TextId="TOK_Name_ErrorType358" Value=" 10.2: Bus Time-Out Option "/>
+					<Text TextId="TOK_Name_ErrorType359" Value=" 10.3: Systemfehler Option "/>
+					<Text TextId="TOK_Name_ErrorType360" Value=" 10.4: Initfehler Option "/>
+					<Text TextId="TOK_Name_ErrorType361" Value=" 10.5: Systemfehler Option "/>
+					<Text TextId="TOK_Name_ErrorType362" Value=" 10.6: Systemfehler Option "/>
+					<Text TextId="TOK_Name_ErrorType363" Value=" 10.7: Systemfehler Option "/>
+					<Text TextId="TOK_Name_ErrorType364" Value=" 10.8: Fehler Option "/>
+					<Text TextId="TOK_Name_ErrorType365" Value=" 10.9: Baugruppe fehlt/P120 "/>
+					<Text TextId="TOK_Name_ErrorType366" Value=" 11.0: Kundenschnittstelle "/>
+					<Text TextId="TOK_Name_ErrorType376" Value=" 12.0: Watchdog extern "/>
+					<Text TextId="TOK_Name_ErrorType377" Value=" 12.1: Motor.Grenze / Kunde "/>
+					<Text TextId="TOK_Name_ErrorType378" Value=" 12.2: Generator. Grenze "/>
+					<Text TextId="TOK_Name_ErrorType379" Value=" 12.3: Drehmomentengrenze "/>
+					<Text TextId="TOK_Name_ErrorType380" Value=" 12.4: Stromgrenze "/>
+					<Text TextId="TOK_Name_ErrorType381" Value=" 12.5: Lastmonitor "/>
+					<Text TextId="TOK_Name_ErrorType384" Value=" 12.8: Analog-In.Minimum "/>
+					<Text TextId="TOK_Name_ErrorType385" Value=" 12.9: Analog-In.Maximum "/>
+					<Text TextId="TOK_Name_ErrorType386" Value=" 13.0: Drehgeberfehler "/>
+					<Text TextId="TOK_Name_ErrorType387" Value=" 13.1: Schleppfehler Drehz. "/>
+					<Text TextId="TOK_Name_ErrorType388" Value=" 13.2: Ausschaltüberwachung "/>
+					<Text TextId="TOK_Name_ErrorType391" Value=" 13.5: Flieg.Säge Beschleu. "/>
+					<Text TextId="TOK_Name_ErrorType392" Value=" 13.6: Flieg.Säge Wert falsch "/>
+					<Text TextId="TOK_Name_ErrorType396" Value=" 14.0: Slavecheck "/>
+					<Text TextId="TOK_Name_ErrorType397" Value=" 14.1: Hostcheck "/>
+					<Text TextId="TOK_Name_ErrorType398" Value=" 14.2: Referenzpkt. Fehler "/>
+					<Text TextId="TOK_Name_ErrorType399" Value=" 14.3: Spg.überwach.bit Abs "/>
+					<Text TextId="TOK_Name_ErrorType400" Value=" 14.4: Absolutw.geberfehler "/>
+					<Text TextId="TOK_Name_ErrorType401" Value=" 14.5: Posdiff.  Drehzahl "/>
+					<Text TextId="TOK_Name_ErrorType402" Value=" 14.6: Dif. zw. Abs. u. Ink "/>
+					<Text TextId="TOK_Name_ErrorType403" Value=" 14.7: Max.Lage überschrit. "/>
+					<Text TextId="TOK_Name_ErrorType404" Value=" 14.8: Min.Lage unterschrit "/>
+					<Text TextId="TOK_Name_ErrorType406" Value=" 15.0: Falsche SW-Version "/>
+					<Text TextId="TOK_Name_ErrorType407" Value=" 15.1: P-Watchdog "/>
+					<Text TextId="TOK_Name_ErrorType408" Value=" 15.2: P-Stack Overflow "/>
+					<Text TextId="TOK_Name_ErrorType409" Value=" 15.3: P-Stack Underflow "/>
+					<Text TextId="TOK_Name_ErrorType410" Value=" 15.4: P-Undefined Opcode "/>
+					<Text TextId="TOK_Name_ErrorType411" Value=" 15.5: P-Protected Instruct "/>
+					<Text TextId="TOK_Name_ErrorType412" Value=" 15.6: P-Illegal WordAccess "/>
+					<Text TextId="TOK_Name_ErrorType413" Value=" 15.7: P-Illegal InstAccess "/>
+					<Text TextId="TOK_Name_ErrorType414" Value=" 15.8: P-Progspeicher Fehl. "/>
+					<Text TextId="TOK_Name_ErrorType416" Value=" 16.0: Phasenfehler Motor "/>
+					<Text TextId="TOK_Name_ErrorType417" Value=" 16.1: Magn.strom Überwach. "/>
+					<Text TextId="TOK_Name_ErrorType426" Value=" 17.0: Baugruppe gewechselt "/>
+					<Text TextId="TOK_Name_ErrorType436" Value=" 18.0: Sicherheitskreis "/>
+					<Text TextId="TOK_Name_ErrorType437" Value=" 18.1: Zweiphasenrelais "/>
+					<Text TextId="TOK_Name_ErrorType438" Value=" 18.2: Eing. sicherer Halt "/>
+					<Text TextId="TOK_Name_ErrorType439" Value=" 18.3: Wechsler-Relais "/>
+					<Text TextId="TOK_Name_ErrorType440" Value=" 18.4: Bypass-Relais "/>
+					<Text TextId="TOK_Name_ErrorType446" Value=" 19.0: Parameteridentifika. "/>
+					<Text TextId="TOK_Name_ErrorType447" Value=" 19.1: Stern/Dreieck falsch "/>
+					<Text TextId="TOK_Name_ErrorType456" Value=" 20.0: Externes RAM "/>
+					<Text TextId="TOK_Name_ErrorType457" Value=" 20.1: Watchdog "/>
+					<Text TextId="TOK_Name_ErrorType458" Value=" 20.2: Stack Overflow "/>
+					<Text TextId="TOK_Name_ErrorType459" Value=" 20.3: Stack Underflow "/>
+					<Text TextId="TOK_Name_ErrorType460" Value=" 20.4: Undefined Opcode "/>
+					<Text TextId="TOK_Name_ErrorType461" Value=" 20.5: Protected Instruct. "/>
+					<Text TextId="TOK_Name_ErrorType462" Value=" 20.6: Illegal Word Access "/>
+					<Text TextId="TOK_Name_ErrorType463" Value=" 20.7: Illegal Inst. Access "/>
+					<Text TextId="TOK_Name_ErrorType464" Value=" 20.8: Prog.speicher Fehler "/>
+					<Text TextId="TOK_Name_ErrorType465" Value=" 20.9: Dual-Ported RAM "/>
+					<Text TextId="TOK_Name_ErrorType466" Value=" 21.0: NMI Fehler "/>
+					<Text TextId="TOK_Name_ErrorType467" Value=" 21.1: PLL Fehler "/>
+					<Text TextId="TOK_Name_ErrorType468" Value=" 21.2: ADU Fehler "/>
+					<Text TextId="TOK_Name_ErrorType469" Value=" 21.3: PMI Fehler "/>
+					<Text TextId="TOK_Name_ErrorType470" Value=" 21.4: Userstack Overflow "/>
+					<Text TextId="TOK_Name_ErrorType476" Value=" 22.0: Kein PLC Programm "/>
+					<Text TextId="TOK_Name_ErrorType477" Value=" 22.1: Prüfsumme PLC Progr. "/>
+					<Text TextId="TOK_Name_ErrorType478" Value=" 22.2: PLC Sprung ungültig "/>
+					<Text TextId="TOK_Name_ErrorType479" Value=" 22.3: PLC Stackfehler "/>
+					<Text TextId="TOK_Name_ErrorType480" Value=" 22.4: PLC max.Zykl.erreicht "/>
+					<Text TextId="TOK_Name_ErrorType481" Value=" 22.5: PLC unbekannter Befehl "/>
+					<Text TextId="TOK_Name_ErrorType482" Value=" 22.6: PLC Schreibzugriff "/>
+					<Text TextId="TOK_Name_ErrorType485" Value=" 22.9: PLC Fehler "/>
+					<Text TextId="TOK_Name_ErrorType486" Value=" 23.0: PLC Benutzerfehler 1 "/>
+					<Text TextId="TOK_Name_ErrorType487" Value=" 23.1: PLC Benutzerfehler 2 "/>
+					<Text TextId="TOK_Name_ErrorType488" Value=" 23.2: PLC Benutzerfehler 3 "/>
+					<Text TextId="TOK_Name_ErrorType489" Value=" 23.3: PLC Benutzerfehler 4 "/>
+					<Text TextId="TOK_Name_ErrorType490" Value=" 23.4: PLC Benutzerfehler 5 "/>
+					<Text TextId="TOK_Name_ErrorType491" Value=" 23.5: PLC Benutzerfehler 6 "/>
+					<Text TextId="TOK_Name_ErrorType492" Value=" 23.6: PLC Benutzerfehler 7 "/>
+					<Text TextId="TOK_Name_ErrorType493" Value=" 23.7: PLC Benutzerfehler 8 "/>
+					<Text TextId="TOK_Name_ErrorType496" Value=" 24.0: PLC Benutzerfehler 9 "/>
+					<Text TextId="TOK_Name_ErrorType497" Value=" 24.1: PLC Benutzerfehler 10 "/>
+					<Text TextId="TOK_Name_ErrorType498" Value=" 24.2: PLC Benutzerfehler 11 "/>
+					<Text TextId="TOK_Name_ErrorType499" Value=" 24.3: PLC Benutzerfehler 12 "/>
+					<Text TextId="TOK_Name_ErrorType500" Value=" 24.4: PLC Benutzerfehler 13 "/>
+					<Text TextId="TOK_Name_ErrorType501" Value=" 24.5: PLC Benutzerfehler 14 "/>
+					<Text TextId="TOK_Name_ErrorType502" Value=" 24.6: PLC Benutzerfehler 15 "/>
+					<Text TextId="TOK_Name_ErrorType503" Value=" 24.7: PLC Benutzerfehler 16 "/>
+					<Text TextId="TOK_Name_ErrorType506" Value=" 25.0: Hiperface Abs/Ink Fehler "/>
+					<Text TextId="TOK_Name_ErrorType507" Value=" 25.1: Uni.geber Kommunikat. "/>
+					<Text TextId="TOK_Name_ErrorType508" Value=" 25.2: Kein entsp.Uni.geber "/>
+					<Text TextId="TOK_Name_ErrorType509" Value=" 25.3: Uni.geber Auflösung "/>
+					<Text TextId="TOK_Name_ErrorType510" Value=" 25.4: Uni.geber Fehler "/>
+					<Text TextId="TOK_Name_ErrorType1156" Value=" 90.0: Fehler im Subsystem "/>
+					<Text TextId="TOK_Name_ErrorType1166" Value=" 91.0: Updatefehler "/>
+					<Text TextId="TOK_Name_ErrorType1167" Value=" 91.1: Fehler Updatedatei "/>
+					<Text TextId="TOK_Name_ErrorType1168" Value=" 91.2: Host Timeout "/>
+					<Text TextId="TOK_Name_ErrorType1169" Value=" 91.3: Update gesperrt "/>
+					<Text TextId="TOK_Name_ErrorType1246" Value=" 99.0: Interner Fehler "/>
+					<Text TextId="TOK_Name_ErrorType1256" Value=" 1000: EEPROM Fehler "/>
+					<Text TextId="TOK_Name_ErrorType1266" Value=" 1010: 24V Systembus fehlt "/>
+					<Text TextId="TOK_Name_ErrorType1276" Value=" 1020: Bus Time-Out P151 "/>
+					<Text TextId="TOK_Name_ErrorType1286" Value=" 1030: Systembus Bus off "/>
+					<Text TextId="TOK_Name_ErrorType1296" Value=" 1040: Übertemp. Baugruppe "/>
+					<Text TextId="TOK_Name_ErrorType1356" Value=" 110.0: Safety CRC Fehler "/>
+					<Text TextId="TOK_Name_ErrorType1357" Value=" 110.1: Safety CRC geändert "/>
+					<Text TextId="TOK_Name_ErrorType1358" Value=" 110.2: Safety CRC Passwort Fehler"/>
+					<Text TextId="TOK_Name_ErrorType2256" Value=" 200.0: Bussystem Fehler "/>
+					<Text TextId="TOK_Name_ErrorType2257" Value=" 200.1: Knotenfehler "/>
+					<Text TextId="TOK_Name_ErrorType2266" Value=" 2010: AOut Fehler "/>
+					<Text TextId="TOK_Name_ErrorType2276" Value=" 2020: FU inkompatibel "/>
+					<Text TextId="TOK_Name_ErrorType2456" Value=" 220.0: SPS Timeout "/>
+					<Text TextId="TOK_Name_ErrorType2457" Value=" 220.1: Frequnzumrichter Timeout "/>
+					<Text TextId="TOK_Name_ErrorType2458" Value=" 220.2: Ethernet Fehler (no link) "/>
+					<Text TextId="TOK_Name_ErrorType2459" Value=" 220.3: Temperaturfehler "/>
+					<Text TextId="TOK_Name_ErrorType2460" Value=" 220.4: Frequnzumrichter verloren "/>
+					<Text TextId="TOK_Name_ErrorType3246" Value=" 299.0: Systemfehler "/>
+					<Text TextId="TOK_Name_ErrorType5756" Value=" 5500: Kabelfehler(No link) "/>
+					<Text TextId="TOK_Name_ErrorType5757" Value=" 5501: IO Hardwarefehler "/>
+					<Text TextId="TOK_Name_ErrorType5758" Value=" 5502: CAN Hardwarefehler "/>
+					<Text TextId="TOK_Name_ErrorType5759" Value=" 5503: SAF Hardwarefehler "/>
+					<Text TextId="TOK_Name_ErrorType5760" Value=" 5504: FU verloren "/>
+					<Text TextId="TOK_Name_ErrorType5761" Value=" 5505: AR verloren "/>
+					<Text TextId="TOK_Name_ErrorType5896" Value=" 5640: MAC Adressfehler "/>
+					<Text TextId="TOK_Name_ExtErrorType5503" Value=" 5503: SAFE Hardware Fehler "/>
+					<Text TextId="TOK_Name_ExtErrorType5711" Value=" 5711: Clientadresse "/>
+					<Text TextId="TOK_Name_ExtErrorType5712" Value=" 5712: Clientadr. ungültig "/>
+					<Text TextId="TOK_Name_ExtErrorType5713" Value=" 5713: Hostadr. ungültig "/>
+					<Text TextId="TOK_Name_ExtErrorType5714" Value=" 5714: Watchdogzeit ist 0 "/>
+					<Text TextId="TOK_Name_ExtErrorType5715" Value=" 5715: F-SIL-Level ungültig "/>
+					<Text TextId="TOK_Name_ExtErrorType5716" Value=" 5716: F-Par-Vers. ungültig "/>
+					<Text TextId="TOK_Name_ExtErrorType5717" Value=" 5717: F-Para-CRC "/>
+					<Text TextId="TOK_Name_ExtErrorType5718" Value=" 5718: Allg. F-Par-Fehler "/>
+					<Text TextId="TOK_Name_ExtErrorType5719" Value=" 5719: I-Para-CRC SPS "/>
+					<Text TextId="TOK_Name_ExtErrorType5721" Value=" 5721: CRC-Länge ungleich "/>
+					<Text TextId="TOK_Name_ExtErrorType5722" Value=" 5722: I-Parameter geändert "/>
+					<Text TextId="TOK_Name_ExtErrorType5723" Value=" 5723: I-Para-CRC extern "/>
+					<Text TextId="TOK_Name_ExtErrorType5724" Value=" 5724: I-Para-CRC intern "/>
+					<Text TextId="TOK_Name_ExtErrorType5725" Value=" 5725: F-Para-Telegramm = 0 "/>
+					<Text TextId="TOK_Name_ExtErrorType5726" Value=" 5726: Lesefehler DIP "/>
+					<Text TextId="TOK_Name_ExtErrorType5731" Value=" 5731: Diskrepanzzeit Eing. "/>
+					<Text TextId="TOK_Name_ExtErrorType5732" Value=" 5732: Diagnose OSSD 1 "/>
+					<Text TextId="TOK_Name_ExtErrorType5733" Value=" 5733: Diagnose OSSD 2 "/>
+					<Text TextId="TOK_Name_ExtErrorType5734" Value=" 5734: Diagnose OSSD 3 "/>
+					<Text TextId="TOK_Name_ExtErrorType5735" Value=" 5735: Diagnose Takt 1 "/>
+					<Text TextId="TOK_Name_ExtErrorType5736" Value=" 5736: Diagnose Takt 2 "/>
+					<Text TextId="TOK_Name_ExtErrorType5737" Value=" 5737: Diagnose OSSD an In1 "/>
+					<Text TextId="TOK_Name_ExtErrorType5738" Value=" 5738: Diagnose OSSD an In2 "/>
+					<Text TextId="TOK_Name_ExtErrorType5741" Value=" 5741: IPAR Kanalakt. OSSD1 "/>
+					<Text TextId="TOK_Name_ExtErrorType5742" Value=" 5742: IPAR Kanalakt. OSSD2 "/>
+					<Text TextId="TOK_Name_ExtErrorType5743" Value=" 5743: IPAR Kanalakt. OSSD3 "/>
+					<Text TextId="TOK_Name_ExtErrorType5744" Value=" 5744: IPAR Kanalakt. Takt1 "/>
+					<Text TextId="TOK_Name_ExtErrorType5745" Value=" 5745: IPAR Kanalakt. Takt2 "/>
+					<Text TextId="TOK_Name_ExtErrorType5746" Value=" 5746: IPAR Kanalakt. In1 "/>
+					<Text TextId="TOK_Name_ExtErrorType5747" Value=" 5747: IPAR Kanalakt. In2 "/>
+					<Text TextId="TOK_Name_ExtErrorType5748" Value=" 5748: IPAR Kanalakt. I-Par "/>
+					<Text TextId="TOK_Name_ExtErrorType5749" Value=" 5749: IPAR Pulslänge OSSD "/>
+					<Text TextId="TOK_Name_ExtErrorType5751" Value=" 5751: IPAR Filterzeit Dig. "/>
+					<Text TextId="TOK_Name_ExtErrorType5752" Value=" 5752: IPAR Ein-/Zweikanal "/>
+					<Text TextId="TOK_Name_ExtErrorType5753" Value=" 5753: IPAR Diskrepanzzeit "/>
+					<Text TextId="TOK_Name_ExtErrorType5754" Value=" 5754: IPAR Passivierung "/>
+					<Text TextId="TOK_Name_ExtErrorType5755" Value=" 5755: IPAR Enc.-Parameter "/>
+					<Text TextId="TOK_Name_ExtErrorType5756" Value=" 5756: IPAR SLS-Aktivierung "/>
+					<Text TextId="TOK_Name_ExtErrorType5757" Value=" 5757: IPAR SSR-Aktivierung "/>
+					<Text TextId="TOK_Name_ExtErrorType5758" Value=" 5758: IPAR SDI-P-Aktiv. "/>
+					<Text TextId="TOK_Name_ExtErrorType5759" Value=" 5759: IPAR SDI-N-Aktiv. "/>
+					<Text TextId="TOK_Name_ExtErrorType5761" Value=" 5761: IPAR SOS-Aktiv. "/>
+					<Text TextId="TOK_Name_ExtErrorType5762" Value=" 5762: IPAR Aktiv.zeit "/>
+					<Text TextId="TOK_Name_ExtErrorType5763" Value=" 5763: IPAR Reaktionszeit "/>
+					<Text TextId="TOK_Name_ExtErrorType5764" Value=" 5764: IPAR Geschwindigkeit "/>
+					<Text TextId="TOK_Name_ExtErrorType5765" Value=" 5765: IPAR Pos.-Toleranz "/>
+					<Text TextId="TOK_Name_ExtErrorType5766" Value=" 5766: IPAR Enc.-Grenzfreq. "/>
+					<Text TextId="TOK_Name_ExtErrorType5771" Value=" 5771: PNS Temperatur "/>
+					<Text TextId="TOK_Name_ExtErrorType5772" Value=" 5772: PNS Enc. Sicherheit "/>
+					<Text TextId="TOK_Name_ExtErrorType5773" Value=" 5773: PNS Sync-Signal "/>
+					<Text TextId="TOK_Name_ExtErrorType5774" Value=" 5774: PNS Spannung 24V  "/>
+					<Text TextId="TOK_Name_ExtErrorType5775" Value=" 5775: PNS Spannung 8V "/>
+					<Text TextId="TOK_Name_ExtErrorType5776" Value=" 5776: PNS Drehzahldifferenz "/>
+					<Text TextId="TOK_Name_ExtErrorType5781" Value=" 5781: SLS-Fehler "/>
+					<Text TextId="TOK_Name_ExtErrorType5782" Value=" 5782: SSR-Fehler "/>
+					<Text TextId="TOK_Name_ExtErrorType5783" Value=" 5783: SDI-P-Fehler "/>
+					<Text TextId="TOK_Name_ExtErrorType5784" Value=" 5784: SDI-N-Fehler "/>
+					<Text TextId="TOK_Name_ExtErrorType5785" Value=" 5785: SOS-Fehler "/>
+					<Text TextId="TOK_Name_ExtErrorType5791" Value=" 5791: PNS Systemfehler "/>
+					<Text TextId="TOK_Name_ExtErrorType5792" Value=" 5792: PNS max.Systemfehler "/>
+					<Text TextId="TOK_Name_ExtErrorType5797" Value=" 5797: PNS Flashzugriff "/>
+					<Text TextId="TOK_Name_ExtErrorType5799" Value=" 5799: PNS Profinet "/>
+				</Language>
+			</ExternalTextList>
+		</ApplicationProcess>
+	</ProfileBody>
+</ISO15745Profile>
